@@ -1,0 +1,25 @@
+div.tres {
+  height: 550px;
+  width: 45%;
+
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  word-wrap: break-word;
+  background-color: rgb(17, 17, 19);
+  background-clip: border-box;
+  border: 0 solid rgb(0, 0, 0, 0.125);
+}
+
+div.col-md-4 {
+  height: 100px;
+  width: 40%;
+
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  word-wrap: break-word;
+
+  background-clip: border-box;
+  border: 0 solid rgba(0, 0, 0, 0.125);
+}

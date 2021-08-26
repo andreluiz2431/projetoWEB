@@ -1,0 +1,12 @@
+div.tres {
+  height: 460px;
+  width: 45%;
+
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  word-wrap: break-word;
+  background-color: rgb(17, 17, 19);
+  background-clip: border-box;
+  border: 0 solid rgba(0, 0, 0, 0.125);
+}
