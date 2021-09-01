@@ -7,26 +7,38 @@ function mostrarSenha(id) {
   }
 }
 
-function verificanomes(id, id1) {
+
+function verificacao (id,id1,id2,id3){
   var nam = document.getElementById(id).value;
   var nam1 = document.getElementById(id1).value;
-  if (nam == "" && nam1 == "") {
+
+  verificanomes(nam,nam1);
+
+  var sennha = document.getElementById(id2).value;
+  var sennha1 = document.getElementById(id3).value;
+
+  verificaSenhas(sennha, sennha1);
+}
+
+
+function verificanomes(id, id1) {
+  
+  if (id == "" && id1 == "") {
     alert("O nome e o sobrenome não foram preenchidos, por favor revise");
-    document.nam.focus();
+    document.id.focus();
     return false;
-  } else if (nam == "") {
+  } else if (id == "") {
     alert("O nome não está preenchido, por favor revise");
-    document.nam.focus();
+    document.id.focus();
     return false;
-  } else if (nam1 == "") {
+  } else if (id1 == "") {
     alert("O sobrenome não está preenchido, por favor revise");
-    document.nam.focus();
+    document.id1.focus();
     return false;
   }
 }
-function verificaSenhas(id, id1) {
-  var sennha = document.getElementById(id).value;
-  var sennha1 = document.getElementById(id1).value;
+function verificaSenhas(sennha, sennha1) {
+  
 
   if (sennha == "" || sennha.length <= 5) {
     alert(
