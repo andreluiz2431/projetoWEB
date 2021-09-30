@@ -61,6 +61,7 @@
 </head>
 
 <body>
+  
   <div class="container-fluid">
     <div class="row">
 
@@ -225,7 +226,6 @@
     </div>
 
 
-
     <!-- Modal editar experiencia -->
     <div class="modal fade" id="modalExperiencia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -234,59 +234,16 @@
             <h5 class="modal-title" id="exampleModalLabel">Editar esperiência</h5>
             <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
+          <div class="modal-body" id= "addExp">
+            
     
             <div class="row">
               <div class="col-md-12">
-                <input class="form-control" style="background-color: #333;border: none;"
-                  placeholder="Fale um pouco sobre sua experiência" aria-label="With textarea"></input>
+                <button type="button" onclick="adicionarEXP()" class="btn btn-primary">ADD</button>
+               
               </div>
             </div>
-    
             <hr>
-    
-            <div class="row">
-              <div class="col-md-12">
-                <input class="form-control" style="background-color: #333;border: none;"
-                  placeholder="Fale um pouco sobre sua experiência" aria-label="With textarea"></input>
-              </div>
-            </div>
-    
-            <hr>
-    
-            <div class="row">
-              <div class="col-md-12">
-                <input class="form-control" style="background-color: #333;border: none;"
-                  placeholder="Fale um pouco sobre sua experiência" aria-label="With textarea"></input>
-              </div>
-            </div>
-    
-            <hr>
-    
-            <div class="row">
-              <div class="col-md-12">
-                <input class="form-control" style="background-color: #333;border: none;"
-                  placeholder="Fale um pouco sobre sua experiência" aria-label="With textarea"></input>
-              </div>
-            </div>
-    
-            <hr>
-    
-            <div class="row">
-              <div class="col-md-12">
-                <input class="form-control" style="background-color: #333;border: none;"
-                  placeholder="Fale um pouco sobre sua experiência" aria-label="With textarea"></input>
-              </div>
-            </div>
-    
-            <hr>
-    
-            <div class="row">
-              <div class="col-md-12">
-                <button type="button" class="btn btn-primary">ADD</button>
-              </div>
-            </div>
-    
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-secondary" data-mdb-dismiss="modal">
@@ -307,62 +264,28 @@
             <h5 class="modal-title" id="exampleModalLabel">Editar skills</h5>
             <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
-    
+          <div class="modal-body" id="addSkil">
             <div class="row">
               <div class="col-md-12">
-                <input class="form-control" style="background-color: #333;border: none;" placeholder="Título de skill"
+                <input class="form-control" type="text" style="background-color: #333;border: none;" placeholder="Título de skill"
                   aria-label="With textarea"></input>
-                <div class="range">
+                
+                  <div class="range">
                   <input type="range" class="form-range" min="0" max="5" id="customRange2" />
                 </div>
               </div>
             </div>
-    
-            <hr>
-    
+                              
+          
             <div class="row">
               <div class="col-md-12">
-                <input class="form-control" style="background-color: #333;border: none;" placeholder="Título de skill"
-                  aria-label="With textarea"></input>
-                <div class="range">
-                  <input type="range" class="form-range" min="0" max="5" id="customRange2" />
-                </div>
+              
+                <button type="button" onclick="adicionarSKIL()" class="btn btn-primary">ADD</button>
+              
               </div>
             </div>
-    
             <hr>
-    
-            <div class="row">
-              <div class="col-md-12">
-                <input class="form-control" style="background-color: #333;border: none;" placeholder="Título de skill"
-                  aria-label="With textarea"></input>
-                <div class="range">
-                  <input type="range" class="form-range" min="0" max="5" id="customRange2" />
-                </div>
-              </div>
-            </div>
-    
-            <hr>
-    
-            <div class="row">
-              <div class="col-md-12">
-                <input class="form-control" style="background-color: #333;border: none;" placeholder="Título de skill"
-                  aria-label="With textarea"></input>
-                <div class="range">
-                  <input type="range" class="form-range" min="0" max="5" id="customRange2" />
-                </div>
-              </div>
-            </div>
-    
-            <hr>
-    
-            <div class="row">
-              <div class="col-md-12">
-                <button type="button" class="btn btn-primary">ADD</button>
-              </div>
-            </div>
-    
+
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-secondary" data-mdb-dismiss="modal">
@@ -760,11 +683,6 @@
             </div>
 
 
-
-
-
-
-
           </div>
           <div class="col-md-1"></div>
         </div>
@@ -863,6 +781,7 @@
     </div>
     <!-- MDB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+    <script type="text/javascript" src="./js/perfil.js"></script>
 </body>
 
 </html>
