@@ -120,7 +120,7 @@ class Usuario
     { //            Instanciar em todas as telas menos no Login e Cadastro
         session_start();
         if (!isset($_SESSION['usuario'])) {
-            echo "<script>window.location.href= '../sb-admin-2/index.php';</script>";
+            echo "<script>window.location.href= './index.html';</script>";
         }
     }
 
@@ -223,6 +223,7 @@ class Usuario
 
             $this->inserirAcesso($linha['idUsuario']);
 
+            echo "<script>alert('" . $_SESSION['usuario'] . " logado com sucesso!');</script>";
             echo "<script>window.location.href= './perfil.php';</script>";
             break;
         }

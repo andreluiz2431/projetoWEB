@@ -1,3 +1,12 @@
+<?php
+
+
+include './classes/class_usuario.php';
+
+$usuario = new Usuario();
+
+//$usuario->verificarLogado();
+?>
 <html>
 
 <head>
@@ -61,7 +70,7 @@
 </head>
 
 <body>
-  
+
   <div class="container-fluid">
     <div class="row">
 
@@ -70,9 +79,7 @@
         <!-- Container wrapper -->
         <div class="container-fluid">
           <!-- Toggle button -->
-          <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-            data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="fas fa-bars"></i>
           </button>
 
@@ -80,7 +87,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left links -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            
+
               <li class="nav-item">
                 <!-- Navbar brand -->
                 <a class="navbar-brand" href="#" style="margin-top: -10%; margin-bottom: -10%;">
@@ -109,22 +116,18 @@
 
           <!-- Right elements -->
           <div class="d-flex align-items-center">
-            
+
           </div>
 
           <div class="dropdown">
-            
-            <i class="fas fa-ellipsis-v"
-            type="button"
-              id="dropdownMenuButton"
-              data-mdb-toggle="dropdown"
-              aria-expanded="false"></i>
+
+            <i class="fas fa-ellipsis-v" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false"></i>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <li><a class="dropdown-item" href="#">Configurações</a></li>
               <li><a class="dropdown-item" href="#">Sair</a></li>
             </ul>
           </div>
-          
+
           <!-- Right elements-->
         </div>
         <!-- Container wrapper -->
@@ -135,15 +138,13 @@
 
     <div class="row" style="margin-left: -2%;">
       <div class="col-md-1">
-        <button type="button" class="btn btn-outline-primary btn-floating" data-mdb-toggle="modal"
-          data-mdb-target="#modalThumb" style="position: absolute; margin-top: 16%; margin-left: 1%;">
+        <button type="button" class="btn btn-outline-primary btn-floating" data-mdb-toggle="modal" data-mdb-target="#modalThumb" style="position: absolute; margin-top: 16%; margin-left: 1%;">
           <!-- modalThumb -->
           <i class="fas fa-pen"></i>
         </button>
       </div>
       <div class="col-md-12">
-        <img src="./img/perfil.gif" class="img-fluid" alt="Responsive image"
-        style="height: 350px;width: 100%; object-fit: cover;">
+        <img src="./img/perfil.gif" class="img-fluid" alt="Responsive image" style="height: 350px;width: 100%; object-fit: cover;">
       </div>
     </div>
 
@@ -170,16 +171,14 @@
 
             <div class="row">
               <div class="col-md-12">
-                <input class="form-control" style="background-color: #333;border: none;"
-                  placeholder="Alterar seu cargo principal" aria-label="With textarea"></input>
+                <input class="form-control" style="background-color: #333;border: none;" placeholder="Alterar seu cargo principal" aria-label="With textarea"></input>
                 <hr>
               </div>
             </div>
 
             <div class="row">
               <div class="col-md-12">
-                <input class="form-control" style="background-color: #333;border: none;"
-                  placeholder="Alterar seu endereço" aria-label="With textarea"></input>
+                <input class="form-control" style="background-color: #333;border: none;" placeholder="Alterar seu endereço" aria-label="With textarea"></input>
                 <hr>
               </div>
             </div>
@@ -209,8 +208,7 @@
 
             <div class="row">
               <div class="col-md-12">
-                <textarea class="form-control" style="background-color: #333;border: none;"
-                  placeholder="Fale um pouco sobre você" aria-label="With textarea"></textarea>
+                <textarea class="form-control" style="background-color: #333;border: none;" placeholder="Fale um pouco sobre você" aria-label="With textarea"></textarea>
               </div>
             </div>
 
@@ -234,13 +232,13 @@
             <h5 class="modal-title" id="exampleModalLabel">Editar esperiência</h5>
             <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body" id= "addExp">
-            
-    
+          <div class="modal-body" id="addExp">
+
+
             <div class="row">
               <div class="col-md-12">
                 <button type="button" onclick="adicionarEXP()" class="btn btn-primary">ADD</button>
-               
+
               </div>
             </div>
             <hr>
@@ -254,8 +252,8 @@
         </div>
       </div>
     </div>
-    
-    
+
+
     <!-- Modal editar skills -->
     <div class="modal fade" id="modalSkills" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -267,21 +265,20 @@
           <div class="modal-body" id="addSkil">
             <div class="row">
               <div class="col-md-12">
-                <input class="form-control" type="text" style="background-color: #333;border: none;" placeholder="Título de skill"
-                  aria-label="With textarea"></input>
-                
-                  <div class="range">
+                <input class="form-control" type="text" style="background-color: #333;border: none;" placeholder="Título de skill" aria-label="With textarea"></input>
+
+                <div class="range">
                   <input type="range" class="form-range" min="0" max="5" id="customRange2" />
                 </div>
               </div>
             </div>
-                              
-          
+
+
             <div class="row">
               <div class="col-md-12">
-              
+
                 <button type="button" onclick="adicionarSKIL()" class="btn btn-primary">ADD</button>
-              
+
               </div>
             </div>
             <hr>
@@ -340,26 +337,24 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="d-flex flex-column align-items-center text-center">
-                      <img class="userImage" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin"
-                        class="rounded-circle" width="150">
-                        
+                      <img class="userImage" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+
                       <div class="mt-3 ">
-                        <h4>Usuario</h4>
+                        <h4><?php echo $_SESSION['usuario']; ?></h4>
                         <p class="text-secondary mb-1">Full Stack Developer</p>
                         <p class="text-muted font-size-sm">Alegrete, RS, Brasil</p>
                       </div>
                     </div>
                   </div>
                   <div class="col-md-2" style="position: absolute">
-                    <button type="button" class="btn btn-outline-primary btn-floating" data-mdb-toggle="modal"
-                      data-mdb-target="#modalPerfil">
+                    <button type="button" class="btn btn-outline-primary btn-floating" data-mdb-toggle="modal" data-mdb-target="#modalPerfil">
                       <i class="fas fa-pen"></i>
                     </button>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="col-md-8">
             <div class="card mb-3 border-0 bg-dark text-white">
               <div class="card-body">
@@ -368,18 +363,17 @@
                     <div class="row">
                       <div class="col-md-11">
                         <h3>Sobre</h3>
-                        </div>
+                      </div>
                       <div class="col-md-1">
-                        <button type="button" class="btn btn-outline-primary btn-floating" data-mdb-toggle="modal"
-                          data-mdb-target="#modalSobre">
+                        <button type="button" class="btn btn-outline-primary btn-floating" data-mdb-toggle="modal" data-mdb-target="#modalSobre">
                           <i class="fas fa-pen"></i>
                         </button>
                       </div>
-                      </div>
-                      <div class="row">
-                        <p class="text-secondary mb-1">XXXXXXXXXXXXXXXXXXXXXXx</p>
-                      </div>
-                      </div>
+                    </div>
+                    <div class="row">
+                      <p class="text-secondary mb-1">XXXXXXXXXXXXXXXXXXXXXXx</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -394,14 +388,13 @@
                     <div class="row">
                       <div class="col-md-10">
                         <h3>Tecnologias</h3>
-                        </div>
+                      </div>
                       <div class="col-md-2">
-                        <button type="button" class="btn btn-outline-primary btn-floating" data-mdb-toggle="modal"
-                          data-mdb-target="#modalSobre">
+                        <button type="button" class="btn btn-outline-primary btn-floating" data-mdb-toggle="modal" data-mdb-target="#modalSobre">
                           <i class="fas fa-pen"></i>
                         </button>
                       </div>
-                      </div>
+                    </div>
                     <div class="row">
                       <div style="height: 40px;"></div>
 
@@ -442,36 +435,30 @@
                         <h3 class="d-flex align-items-center mb-3">Skills</h3>
                       </div>
                       <div class="col-md-2">
-                        <button type="button" class="btn btn-outline-primary btn-floating" data-mdb-toggle="modal"
-                          data-mdb-target="#modalSkills">
+                        <button type="button" class="btn btn-outline-primary btn-floating" data-mdb-toggle="modal" data-mdb-target="#modalSkills">
                           <i class="fas fa-pen"></i>
                         </button>
                       </div>
                     </div>
                     <small>Web Design</small>
                     <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80"
-                        aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <small>Website Markup</small>
                     <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72"
-                        aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <small>One Page</small>
                     <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89"
-                        aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <small>Mobile Template</small>
                     <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55"
-                        aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <small>Backend API</small>
                     <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66"
-                        aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                   </div>
                 </div>
@@ -484,8 +471,7 @@
                         <h3 class="d-flex align-items-center mb-3">Experiência</h3>
                       </div>
                       <div class="col-md-2">
-                        <button type="button" class="btn btn-outline-primary btn-floating" data-mdb-toggle="modal"
-                          data-mdb-target="#modalExperiencia">
+                        <button type="button" class="btn btn-outline-primary btn-floating" data-mdb-toggle="modal" data-mdb-target="#modalExperiencia">
                           <i class="fas fa-pen"></i>
                         </button>
                       </div>
@@ -531,70 +517,64 @@
                         <h3>Conexões</h3>
                       </div>
                       <div class="col-md-2">
-                        <button type="button" class="btn btn-outline-primary btn-floating" data-mdb-toggle="modal"
-                          data-mdb-target="#modalSobre">
+                        <button type="button" class="btn btn-outline-primary btn-floating" data-mdb-toggle="modal" data-mdb-target="#modalSobre">
                           <i class="fas fa-pen"></i>
                         </button>
                       </div>
-                      </div>
+                    </div>
                     <div class="row">
                     </div>
                     <div class="row">
                       <div class="col-md-1">
-                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
-                          data-mdb-toggle="dropdown" aria-expanded="false">
+                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
                           <img src="https://mdbootstrap.com/img/new/avatars/2.jpg" class="rounded-circle" height="25" alt="" loading="lazy" />
                         </a>
                       </div>
                       <div class="col-md-11">
                         <small>Xxxxxxxxxxxxxxx</small>
                       </div>
-                      </div>
+                    </div>
                     <hr class="btn-primary">
 
                     <div class="row">
                       <div class="col-md-1">
-                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
-                          data-mdb-toggle="dropdown" aria-expanded="false">
+                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
                           <img src="https://mdbootstrap.com/img/new/avatars/2.jpg" class="rounded-circle" height="25" alt="" loading="lazy" />
                         </a>
                       </div>
                       <div class="col-md-11">
                         <small>Xxxxxxxxxxxxxxx</small>
                       </div>
-                      </div>
+                    </div>
                     <hr class="btn-primary">
 
                     <div class="row">
                       <div class="col-md-1">
-                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
-                          data-mdb-toggle="dropdown" aria-expanded="false">
+                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
                           <img src="https://mdbootstrap.com/img/new/avatars/2.jpg" class="rounded-circle" height="25" alt="" loading="lazy" />
                         </a>
                       </div>
                       <div class="col-md-11">
                         <small>Xxxxxxxxxxxxxxx</small>
                       </div>
-                      </div>
+                    </div>
                     <hr class="btn-primary">
 
                     <div class="row">
                       <div class="col-md-1">
-                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
-                          data-mdb-toggle="dropdown" aria-expanded="false">
+                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
                           <img src="https://mdbootstrap.com/img/new/avatars/2.jpg" class="rounded-circle" height="25" alt="" loading="lazy" />
                         </a>
                       </div>
                       <div class="col-md-11">
                         <small>Xxxxxxxxxxxxxxx</small>
                       </div>
-                      </div>
+                    </div>
                     <hr class="btn-primary">
 
                     <div class="row">
                       <div class="col-md-1">
-                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button"
-                          data-mdb-toggle="dropdown" aria-expanded="false">
+                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
                           <img src="https://mdbootstrap.com/img/new/avatars/2.jpg" class="rounded-circle" height="25" alt="" loading="lazy" />
                         </a>
                       </div>
@@ -616,10 +596,8 @@
                 </div>
                 <div class="row" style="margin-top: 2%;">
                   <div class="input-group">
-                    <textarea class="form-control" style="background-color: #333;border: none;"
-                      placeholder="Escreva sua publicação para o Feed" aria-label="With textarea"></textarea>
-                    <button class="btn btn-outline-primary" type="button" id="button-addon2"
-                      data-mdb-ripple-color="dark">
+                    <textarea class="form-control" style="background-color: #333;border: none;" placeholder="Escreva sua publicação para o Feed" aria-label="With textarea"></textarea>
+                    <button class="btn btn-outline-primary" type="button" id="button-addon2" data-mdb-ripple-color="dark">
                       Publicar
                     </button>
                   </div>
@@ -637,10 +615,8 @@
                         <h5 class="card-title">Card title</h5>
                       </div>
                       <div class="col-md-1">
-                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
-                          id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                          <img src="https://mdbootstrap.com/img/new/avatars/2.jpg" class="rounded-circle" height="25"
-                            alt="" loading="lazy" />
+                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                          <img src="https://mdbootstrap.com/img/new/avatars/2.jpg" class="rounded-circle" height="25" alt="" loading="lazy" />
                         </a>
                       </div>
                     </div>
@@ -662,10 +638,8 @@
                     <div class="row">
                       <div class="col-md-12">
                         <div class="input-group">
-                          <textarea class="form-control" style="background-color: #333;border: none;"
-                            placeholder="Escreva um comentário" aria-label="With textarea"></textarea>
-                          <button class="btn btn-outline-primary" type="button" id="button-addon2"
-                            data-mdb-ripple-color="dark">
+                          <textarea class="form-control" style="background-color: #333;border: none;" placeholder="Escreva um comentário" aria-label="With textarea"></textarea>
+                          <button class="btn btn-outline-primary" type="button" id="button-addon2" data-mdb-ripple-color="dark">
                             Comentar
                           </button>
                         </div>
