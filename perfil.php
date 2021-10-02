@@ -5,7 +5,7 @@ include './classes/class_usuario.php';
 
 $usuario = new Usuario();
 
-//$usuario->verificarLogado();
+$usuario->verificarLogado();
 ?>
 <html>
 
@@ -263,15 +263,6 @@ $usuario = new Usuario();
             <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body" id="addSkil">
-            <div class="row">
-              <div class="col-md-12">
-                <input class="form-control" type="text" style="background-color: #333;border: none;" placeholder="Título de skill" aria-label="With textarea"></input>
-
-                <div class="range">
-                  <input type="range" class="form-range" min="0" max="5" id="customRange2" />
-                </div>
-              </div>
-            </div>
 
 
             <div class="row">
