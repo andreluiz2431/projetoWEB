@@ -207,12 +207,12 @@ class Usuario
         }
     }
 
-    public function login($nome, $senha)
+    public function login($email, $senha)
     {
         $senhaCriptografada = md5($senha);
 
         $this->conexao();
-        $sql = $this->pdo->query("SELECT * FROM usuario WHERE (nomeUsuario = '" . $nome . "') AND (senhaUsuario = '" . $senhaCriptografada . "')");
+        $sql = $this->pdo->query("SELECT * FROM usuario WHERE (emailUsuario = '" . $email . "') AND (senhaUsuario = '" . $senhaCriptografada . "')");
         $ver = false; // pra caso algum estiver incorreto;
         while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) { // Para fazer o coisa percorrer a variável e realizar a consulta
             $_SESSION['usuario'] = $linha['nomeUsuario'];
@@ -223,7 +223,7 @@ class Usuario
 
             $this->inserirAcesso($linha['idUsuario']);
 
-            echo "<script>window.location.href= '../creative/index.php';</script>";
+            echo "<script>window.location.href= './perfil.php';</script>";
             break;
         }
         if ($ver == false) {
@@ -251,7 +251,7 @@ class Usuario
 
                 $this->inserirAcesso($_SESSION['id']);
 
-                echo "<script>window.location.href = '../creative/index.php';</script>";
+                echo "<script>window.location.href = './perfil.php';</script>";
             } catch (PDOException $e) {
                 echo 'Error: ' . $e->getMessage();
                 return -1;

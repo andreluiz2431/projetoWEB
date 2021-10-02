@@ -32,13 +32,11 @@
 
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-dark text-white"
-    style="position: fixed; z-index: 5;width: 100%;margin-top: -15%;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark text-white" style="position: fixed; z-index: 5;width: 100%;margin-top: -15%;">
     <!-- Container wrapper -->
     <div class="container-fluid">
       <!-- Toggle button -->
-      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fas fa-bars"></i>
       </button>
 
@@ -46,7 +44,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        
+
           <li class="nav-item">
             <!-- Navbar brand -->
             <a class="navbar-brand" href="#" style="margin-top: -10%; margin-bottom: -10%;">
@@ -69,13 +67,13 @@
             </a>
           </li>
         </ul>
-      <!-- Collapsible wrapper -->
+        <!-- Collapsible wrapper -->
 
-      <!-- Right elements -->
-      <div class="d-flex align-items-center">
+        <!-- Right elements -->
+        <div class="d-flex align-items-center">
+        </div>
+        <!-- Right elements -->
       </div>
-      <!-- Right elements -->
-    </div>
   </nav>
 
 
@@ -94,85 +92,77 @@
             </div>
             <div class="row">
               <div class="col-md-12">
+                <form method="POST" action="cadastro.php">
 
-                <div class="form-outline">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <input type="text" id="Name" class="form-control" />
-                      <label class="form-label text-white" for="typeText">Nome</label>
+
+
+                  <div class="form-outline">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <input type="text" id="Name" name="nome" class="form-control" />
+                        <label class="form-label text-white" for="typeText">Nome</label>
+                      </div>
                     </div>
                   </div>
-                </div>
 
 
 
-                <div class="form-outline">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <input type="text" id="LastName" class="form-control" />
-                      <label class="form-label text-white" for="typeText">Sobrenome</label>
+
+                  <div class="form-outline">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <input type="email" id="typeEmail" name="email" class="form-control" />
+                        <label class="form-label text-white" for="typeEmail">E-mail</label>
+                      </div>
                     </div>
                   </div>
-                </div>
 
 
 
-                <div class="form-outline">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <input type="email" id="typeEmail" class="form-control" />
-                      <label class="form-label text-white" for="typeEmail">E-mail</label>
+                  <div class="form-outline">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <input type="password" id="senha" name="senha" class="form-control" />
+                        <label class="form-label text-white" for="typePassword">Password</label>
+                      </div>
                     </div>
                   </div>
-                </div>
 
 
+                  <div class="form-check">
+                    <script type="text/javascript" src="./js/cadastro.js"></script>
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" onclick="mostrarSenha('senha')" />
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Mostrar senha
+                    </label>
+                  </div>
 
-                <div class="form-outline">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <input type="password" id="senha" class="form-control" />
-                      <label class="form-label text-white" for="typePassword">Password</label>
+                  <div class="form-outline">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <input type="password" id="cSenha" name="senha2" class="form-control" />
+                        <label class="form-label text-white" for="typePassword">Confirme sua senha</label>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-
-                <div class="form-check">
-                  <script type="text/javascript" src="./js/cadastro.js"></script>
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" 
-                  onclick="mostrarSenha('senha')"/>
-                  <label class="form-check-label" for="flexCheckDefault"  >
-                    Mostrar senha
-                  </label>
-                </div>
-
-                <div class="form-outline">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <input type="password" id="cSenha" class="form-control" />
-                      <label class="form-label text-white" for="typePassword">Confirme sua senha</label>
-                    </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2" onclick="mostrarSenha('cSenha')" />
+                    <script type="text/javascript" src="./js/cadastro.js"></script>
+                    <label class="form-check-label" for="flexCheckDefault2">
+                      Mostrar senha
+                    </label>
                   </div>
-                </div>
 
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2" 
-                  onclick="mostrarSenha('cSenha')"/>
-                  <script type="text/javascript" src="./js/cadastro.js"></script>
-                  <label class="form-check-label" for="flexCheckDefault2"  >
-                    Mostrar senha
-                  </label>
-                </div>
+                  <div class="d-grid gap-2">
+                    <script type="text/javascript" src="./js/cadastro.js"></script>
+                    <button class="btn btn-primary" type="submit" onclick="verificacao('Name','LastName','senha','cSenha')">CADASTRAR </button>
+                  </div>
 
-                <div class="d-grid gap-2">
-                  <script type="text/javascript" src="./js/cadastro.js"></script>
-                  <button class="btn btn-primary" type="submit" onclick="verificacao('Name','LastName','senha','cSenha')" >CADASTRAR  </button>
-                </div>
-
-                <div class="form-group">
-                  <a href="./login.html">Já possui cadastro?</a>
-                </div>
+                  <div class="form-group">
+                    <a href="./login.html">Já possui cadastro?</a>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
@@ -274,3 +264,26 @@
 </body>
 
 </html>
+
+<?php
+if (!empty($_POST["nome"])) {
+
+  if ($_POST["senha"] == $_POST["senha2"]) {
+
+    include "./classes/class_usuario.php";
+
+    $usuario = new Usuario();
+
+    $nome = $_POST["nome"];
+    $email = $_POST["email"];
+    $senha1 = $_POST["senha"];
+    $senha2 = $_POST["senha2"];
+
+    $saida = $usuario->cadastro($nome, $email, $senha1, $senha2);
+
+    if ($saida == "As senhas não correspondem") {
+      echo "<script>alert('" . $saida . "');</script>";
+    }
+  }
+}
+?>
