@@ -2,6 +2,54 @@
 
     <head>
         <title>Configurações</title>
+        <style>
+          body {
+            background-color: #090e11;
+            width: 101%;
+            overflow-x: hidden;
+          }
+      
+          .cardsDir {
+            margin-top: -5%
+          }
+      
+          .card {
+            margin-top: 5%;
+            margin-bottom: 5%;
+            padding: 5%;
+            border-radius: 10px;
+          }
+      
+          .iconsTec {
+            margin-right: -5%;
+            border-radius: 50%;
+            border-color: black;
+            border: 2px;
+            width: 70px;
+            height: 70px;
+            box-shadow: 0 0 1em black;
+          }
+      
+          textarea {
+            box-shadow: 0 0 0.4em black;
+          }
+      
+          .navbar,
+          .card,
+          footer {
+            box-shadow: 0 0 2em black;
+          }
+      
+          .userImage {
+            border-radius: 50%;
+            box-shadow: 0 0 2em blue;
+          }
+      
+          .margem5 {
+            margin-bottom: 5%;
+          }
+        </style>
+
 
         <!-- Font Awesome -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
@@ -11,6 +59,9 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
         <!-- MDB -->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+
+        <!-- CSS-->
+        <link rel="stylesheet" type="text/css" href="configuracao.css">
 
     </head>
 
@@ -131,23 +182,99 @@
           
             <div class="col-8">
               <!-- Tab content -->
+
               <div class="tab-content" id="v-pills-tabContent">
-                <div
-                  class="tab-pane fade show active"
-                  id="v-pills-home"
-                  role="tabpanel"
-                  aria-labelledby="v-pills-home-tab"
-                >
-                  Teste teste teste teste
-                  
-                </div>
+                  <div
+                    class="tab-pane fade show active"
+                    id="v-pills-home"
+                    role="tabpanel"
+                    aria-labelledby="v-pills-home-tab"
+                  >
+                    <div class="container overflow-hidden">
+                     
+                      <div class="row gy-5" style="margin-left: 20%;">
+                        <div class="col-6">
+                          <div class="p-3">
+                            <div class="form-outline">
+                              <input type="text" id="form1" class="form-control" />
+                              <label class="form-label" for="form1" style="color:white;">Nome</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="p-3">
+                            <div class="form-outline">
+                              <input type="text" id="form1" class="form-control" />
+                              <label class="form-label" for="form1" style="color:white;">Email</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <div class="p-3">
+                            <div class="form-outline">
+                              <input type="text" id="form1" class="form-control" />
+                              <label class="form-label" for="form1" style="color:white;">Cidade</label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-2">
+                          <div class="p-3">
+                            <div class="form-outline">
+                              <input type="text" id="form1" class="form-control" />
+                              <label class="form-label" for="form1" style="color:white;">Telefone</label>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>   
+                    
+                  </div>  
+                
+
                 <div
                   class="tab-pane fade"
                   id="v-pills-profile"
                   role="tabpanel"
                   aria-labelledby="v-pills-profile-tab"
                 >
-                  Profile content
+
+
+                <div class="row gy-5" style="margin-left: 20%;">
+                  <div class="col-6">
+                    <div class="p-3">
+                      <div class="form-outline">
+                        <input type="text" id="form1" class="form-control" />
+                        <label class="form-label" for="form1" style="color:white;">Nome</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-3">
+                      <div class="form-outline">
+                        <input type="text" id="form1" class="form-control" />
+                        <label class="form-label" for="form1" style="color:white;">Email</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="p-3">
+                      <div class="form-outline">
+                        <input type="text" id="form1" class="form-control" />
+                        <label class="form-label" for="form1" style="color:white;">Cidade</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <div class="p-3">
+                      <div class="form-outline">
+                        <input type="text" id="form1" class="form-control" />
+                        <label class="form-label" for="form1" style="color:white;">Telefone</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                  
                 </div>
                 <div
                   class="tab-pane fade"
@@ -160,9 +287,9 @@
               </div>
               <!-- Tab content -->
             </div>
+
           </div>
-
-
-
+        </div>
+        
     </body>
 </html>
