@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04-Out-2021 às 19:50
+-- Tempo de geração: 04-Out-2021 às 19:57
 -- Versão do servidor: 10.4.21-MariaDB
 -- versão do PHP: 8.0.10
 
@@ -109,6 +109,19 @@ INSERT INTO `curtida` (`idLike`, `idUsuario`, `idPostComent`, `tipoLike`, `likeL
 (27, 1, 1, 'post', 0),
 (28, 1, 1, 'coment', 1),
 (29, 1, 14, 'post', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `empresa`
+--
+
+CREATE TABLE `empresa` (
+  `cnpj` varchar(20) NOT NULL,
+  `idUsuario` int(11) NOT NULL,
+  `nomeEmpresa` varchar(150) NOT NULL,
+  `emailEmpresa` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -247,6 +260,12 @@ ALTER TABLE `coment`
 ALTER TABLE `curtida`
   ADD PRIMARY KEY (`idLike`),
   ADD KEY `idUsuario` (`idUsuario`);
+
+--
+-- Índices para tabela `empresa`
+--
+ALTER TABLE `empresa`
+  ADD PRIMARY KEY (`cnpj`);
 
 --
 -- Índices para tabela `experienciausuario`
