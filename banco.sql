@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04-Out-2021 às 19:31
+-- Tempo de geração: 04-Out-2021 às 19:50
 -- Versão do servidor: 10.4.21-MariaDB
 -- versão do PHP: 8.0.10
 
@@ -32,23 +32,6 @@ CREATE TABLE `acessos` (
   `dataHoraAcesso` datetime NOT NULL,
   `idUsuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Extraindo dados da tabela `acessos`
---
-
-INSERT INTO `acessos` (`idAcesso`, `dataHoraAcesso`, `idUsuario`) VALUES
-(1, '2019-11-25 09:21:00', 5),
-(2, '2019-11-25 09:21:00', 6),
-(3, '2019-11-25 09:22:00', 7),
-(4, '2019-11-25 09:22:00', 8),
-(5, '2019-11-25 09:34:00', 1),
-(6, '2019-11-27 21:59:00', 9),
-(7, '2019-11-27 22:00:00', 1),
-(8, '2019-11-27 22:15:00', 1),
-(9, '2019-11-27 23:44:00', 1),
-(10, '2019-11-28 08:32:00', 1),
-(11, '2019-11-28 14:13:00', 1);
 
 -- --------------------------------------------------------
 
@@ -231,7 +214,7 @@ INSERT INTO `usuario` (`idUsuario`, `nomeUsuario`, `emailUsuario`, `senhaUsuario
 (1, 'Andre', 'alm28062001@gmail.com', 'b035c48a8fd9c3931489bd3eb936fc89', '', NULL, NULL, NULL),
 (2, 'joao', 'joao@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '', NULL, NULL, NULL),
 (9, 'Andre Luiz Montanha', 'alm28062001@gmail.com', 'b035c48a8fd9c3931489bd3eb936fc89', '', NULL, NULL, NULL),
-(10, 'leonardo', 'leonardo@gmail', 'e10adc3949ba59abbe56e057f20f883e', '', NULL, NULL, NULL);
+(11, 'Leo', 'leonardo@gmai.com', 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL, NULL);
 
 --
 -- Índices para tabelas despejadas
@@ -353,7 +336,7 @@ ALTER TABLE `tecnologias`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
