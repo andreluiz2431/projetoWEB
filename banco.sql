@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 29-Nov-2019 às 03:22
--- Versão do servidor: 10.4.6-MariaDB
--- versão do PHP: 7.3.9
+-- Tempo de geração: 04-Out-2021 às 19:31
+-- Versão do servidor: 10.4.21-MariaDB
+-- versão do PHP: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `ppi3ano`
+-- Banco de dados: `projweb`
 --
 
 -- --------------------------------------------------------
@@ -131,6 +130,18 @@ INSERT INTO `curtida` (`idLike`, `idUsuario`, `idPostComent`, `tipoLike`, `likeL
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `experienciausuario`
+--
+
+CREATE TABLE `experienciausuario` (
+  `idExperiencia` int(11) NOT NULL,
+  `idUsuario` int(11) NOT NULL,
+  `experiencia` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `post`
 --
 
@@ -163,6 +174,41 @@ INSERT INTO `post` (`idPost`, `postPost`, `dataHoraPost`, `idUsuario`, `idCalc`)
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `skillusuario`
+--
+
+CREATE TABLE `skillusuario` (
+  `idSkill` int(11) NOT NULL,
+  `idUsuario` int(11) NOT NULL,
+  `skill` text DEFAULT NULL,
+  `valorSkill` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tecnologias`
+--
+
+CREATE TABLE `tecnologias` (
+  `idTecnologias` int(11) NOT NULL,
+  `tecnologia` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tecnologiausuario`
+--
+
+CREATE TABLE `tecnologiausuario` (
+  `idTecnologia` int(11) NOT NULL,
+  `idUsuario` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `usuario`
 --
 
@@ -170,17 +216,22 @@ CREATE TABLE `usuario` (
   `idUsuario` int(11) NOT NULL,
   `nomeUsuario` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
   `emailUsuario` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
-  `senhaUsuario` varchar(500) COLLATE utf8_unicode_ci NOT NULL
+  `senhaUsuario` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
+  `sobreUsuario` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `enderecoUsuario` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `profissaoUsuario` text COLLATE utf8_unicode_ci DEFAULT NULL,
+  `imagemUsuario` text COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`idUsuario`, `nomeUsuario`, `emailUsuario`, `senhaUsuario`) VALUES
-(1, 'Andre', 'alm28062001@gmail.com', 'b035c48a8fd9c3931489bd3eb936fc89'),
-(2, 'joao', 'joao@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055'),
-(9, 'Andre Luiz Montanha', 'alm28062001@gmail.com', 'b035c48a8fd9c3931489bd3eb936fc89');
+INSERT INTO `usuario` (`idUsuario`, `nomeUsuario`, `emailUsuario`, `senhaUsuario`, `sobreUsuario`, `enderecoUsuario`, `profissaoUsuario`, `imagemUsuario`) VALUES
+(1, 'Andre', 'alm28062001@gmail.com', 'b035c48a8fd9c3931489bd3eb936fc89', '', NULL, NULL, NULL),
+(2, 'joao', 'joao@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '', NULL, NULL, NULL),
+(9, 'Andre Luiz Montanha', 'alm28062001@gmail.com', 'b035c48a8fd9c3931489bd3eb936fc89', '', NULL, NULL, NULL),
+(10, 'leonardo', 'leonardo@gmail', 'e10adc3949ba59abbe56e057f20f883e', '', NULL, NULL, NULL);
 
 --
 -- Índices para tabelas despejadas
@@ -215,12 +266,30 @@ ALTER TABLE `curtida`
   ADD KEY `idUsuario` (`idUsuario`);
 
 --
+-- Índices para tabela `experienciausuario`
+--
+ALTER TABLE `experienciausuario`
+  ADD PRIMARY KEY (`idExperiencia`);
+
+--
 -- Índices para tabela `post`
 --
 ALTER TABLE `post`
   ADD PRIMARY KEY (`idPost`),
   ADD KEY `idUsuario` (`idUsuario`),
   ADD KEY `idCalc` (`idCalc`);
+
+--
+-- Índices para tabela `skillusuario`
+--
+ALTER TABLE `skillusuario`
+  ADD PRIMARY KEY (`idSkill`);
+
+--
+-- Índices para tabela `tecnologias`
+--
+ALTER TABLE `tecnologias`
+  ADD PRIMARY KEY (`idTecnologias`);
 
 --
 -- Índices para tabela `usuario`
@@ -257,16 +326,34 @@ ALTER TABLE `curtida`
   MODIFY `idLike` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
+-- AUTO_INCREMENT de tabela `experienciausuario`
+--
+ALTER TABLE `experienciausuario`
+  MODIFY `idExperiencia` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `post`
 --
 ALTER TABLE `post`
   MODIFY `idPost` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
+-- AUTO_INCREMENT de tabela `skillusuario`
+--
+ALTER TABLE `skillusuario`
+  MODIFY `idSkill` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `tecnologias`
+--
+ALTER TABLE `tecnologias`
+  MODIFY `idTecnologias` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

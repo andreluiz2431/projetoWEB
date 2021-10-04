@@ -97,7 +97,7 @@ session_start();
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./perfil.html">
+            <a class="nav-link" href="./perfil.php">
               <div style="color: white;">Perfil</div>
             </a>
           </li>

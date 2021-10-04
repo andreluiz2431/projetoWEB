@@ -65,7 +65,7 @@ session_start();
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./perfil.html">
+            <a class="nav-link" href="./perfil.php">
               <div style="color: white;">Perfil</div>
             </a>
           </li>
@@ -163,7 +163,7 @@ session_start();
                   </div>
 
                   <div class="form-group">
-                    <a href="./login.html">Já possui cadastro?</a>
+                    <a href="./login.php">Já possui cadastro?</a>
                   </div>
                 </form>
               </div>

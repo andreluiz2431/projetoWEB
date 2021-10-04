@@ -210,7 +210,7 @@ class Usuario
     public function login($email, $senha)
     {
         $senhaCriptografada = md5($senha);
-
+        
         $this->conexao();
         $sql = $this->pdo->query("SELECT * FROM usuario WHERE (emailUsuario = '" . $email . "') AND (senhaUsuario = '" . $senhaCriptografada . "')");
         $ver = false; // pra caso algum estiver incorreto;
@@ -218,13 +218,13 @@ class Usuario
             $_SESSION['usuario'] = $linha['nomeUsuario'];
             $_SESSION['id'] = $linha['idUsuario'];
             $_SESSION['email'] = $linha['emailUsuario'];
-
+            
             $ver = true;
-
-            $this->inserirAcesso($linha['idUsuario']);
-
+            
             echo "<script>alert('" . $_SESSION['usuario'] . " logado com sucesso!');</script>";
             echo "<script>window.location.href= './perfil.php';</script>";
+            $this->inserirAcesso($linha['idUsuario']);
+            
             break;
         }
         if ($ver == false) {
@@ -250,9 +250,9 @@ class Usuario
 
                 $_SESSION['id'] = $this->pdo->lastInsertId();
 
+                echo "<script>window.location.href = './perfil.php';</script>";
                 $this->inserirAcesso($_SESSION['id']);
 
-                echo "<script>window.location.href = './perfil.php';</script>";
             } catch (PDOException $e) {
                 echo 'Error: ' . $e->getMessage();
                 return -1;
