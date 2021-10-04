@@ -82,11 +82,12 @@ session_start();
 
   <div class="container-fluid" style="margin-top: 15%; margin-bottom: 15%;">
     <div class="row">
-      <div class="col-md-2">
-      </div>
+      <div class="col-md-2"></div>
+      
       <div class="col-md-4">
         <img alt="Visualização da imagem de bootstrap" width="100%" src="./img/Logo.png" />
       </div>
+      
       <div class="col-md-4">
         <div class="card bg-dark text-light">
           <div class="card-body" style="padding: 10%;">

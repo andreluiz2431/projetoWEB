@@ -191,42 +191,94 @@
                     aria-labelledby="v-pills-home-tab"
                   >
                    
-                      <div class="row gy-5" style="margin-left: 20%;">
-                        <div class="col-6">
-                          <div class="p-3">
-                            <div class="form-outline">
-                              <input type="text" id="form1" class="form-control" />
-                              <label class="form-label" for="form1" style="color:white;">Nome</label>
+                  <div class="container-fluid" style=" margin-bottom: 15%;">
+                    <div class="row">
+                      <div class="col-md-3"></div>
+                      
+                      <div class="col-md-6">
+                        <div class="card bg-dark text-light">
+                          <div class="card-body" style="padding: 12%;">
+                            <div class="row">
+                              <h1 class="d-flex justify-content-center">Redefinir Dados</h1>
                             </div>
-                          </div>
-                        </div>
-                        <div class="col-6">
-                          <div class="p-3">
-                            <div class="form-outline">
-                              <input type="text" id="form1" class="form-control" />
-                              <label class="form-label" for="form1" style="color:white;">Email</label>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-6">
-                          <div class="p-3">
-                            <div class="form-outline">
-                              <input type="text" id="form1" class="form-control" />
-                              <label class="form-label" for="form1" style="color:white;">Cidade</label>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-2">
-                          <div class="p-3">
-                            <div class="form-outline">
-                              <input type="text" id="form1" class="form-control" />
-                              <label class="form-label" for="form1" style="color:white;">Telefone</label>
+                            <div class="row">
+                              <div class="col-md-12">
+                               
+
+
+                                  <div class="form-outline">
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                        <input type="text" id="Name" name="nome" class="form-control" />
+                                        <label class="form-label text-white" for="typeText">Nome</label>
+                                      </div>
+                                    </div>
+                                  </div>
+                
+                
+                
+                
+                                  <div class="form-outline">
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                        <input type="email" id="typeEmail" name="email" class="form-control" />
+                                        <label class="form-label text-white" for="typeEmail">E-mail</label>
+                                      </div>
+                                    </div>
+                                  </div>
+                
+                
+                
+                                  <div class="form-outline">
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                        <input type="password" id="senha" name="senha" class="form-control" />
+                                        <label class="form-label text-white" for="typePassword">Password</label>
+                                      </div>
+                                    </div>
+                                  </div>
+                
+                
+                                  <div class="form-check">
+                                    <script type="text/javascript" src="./js/cadastro.js"></script>
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" onclick="mostrarSenha('senha')" />
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                      Mostrar senha
+                                    </label>
+                                  </div>
+                
+                                  <div class="form-outline">
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                        <input type="password" id="cSenha" name="senha2" class="form-control" />
+                                        <label class="form-label text-white" for="typePassword">Confirme sua senha</label>
+                                      </div>
+                                    </div>
+                                  </div>
+                
+                                  <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2" onclick="mostrarSenha('cSenha')" />
+                                    <script type="text/javascript" src="./js/cadastro.js"></script>
+                                    <label class="form-check-label" for="flexCheckDefault2">
+                                      Mostrar senha
+                                    </label>
+                                  </div>
+                
+                                  <div class="d-grid gap-2">
+                                    <script type="text/javascript" src="./js/cadastro.js"></script>
+                                    <button class="btn btn-primary" type="submit" onclick="verificacao('Name','LastName','senha','cSenha')">REDEFINIR </button>
+                                  </div>
+                
+                                </form>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                     
-                    
+                      <div class="col-md-2">
+                      </div>
+                    </div>
+                  </div>      
                   </div>  
                 
 
@@ -236,59 +288,171 @@
                   role="tabpanel"
                   aria-labelledby="v-pills-profile-tab"
                 >
-
-
-                <div class="row gy-5" style="margin-left: 20%;">
-                  <div class="col-6">
-                    <div class="p-3">
-                      <div class="form-outline">
-                        <input type="text" id="form1" class="form-control" />
-                        <label class="form-label" for="form1" style="color:white;">231123e</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="p-3">
-                      <div class="form-outline">
-                        <input type="text" id="form1" class="form-control" />
-                        <label class="form-label" for="form1" style="color:white;">213131l</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-6">
-                    <div class="p-3">
-                      <div class="form-outline">
-                        <input type="text" id="form1" class="form-control" />
-                        <label class="form-label" for="form1" style="color:white;">C213123de</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-2">
-                    <div class="p-3">
-                      <div class="form-outline">
-                        <input type="text" id="form1" class="form-control" />
-                        <label class="form-label" for="form1" style="color:white;">Te213133one</label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
+                  <!--Cadastro Empresa-->
                   
+                  <div class="container-fluid" style="margin-bottom: 15%;">
+                    <div class="row">
+                      <div class="col-md-3">
+                      </div>
+                      <div class="col-md-6">
+                        <div class="card bg-dark text-light">
+                          <div class="card-body" style="padding: 10%;">
+                            <div class="row">
+                              <h1 class="d-flex justify-content-center">Cadastro de empresa</h1>
+                            </div>
+                            <div class="row">
+                              <div class="col-md-12">
+
+                                <div class="form-outline">
+                                  <div class="row">
+                                    <div class="col-md-12">
+                                      <input type="text" id="typeText" class="form-control" />
+                                      <label class="form-label text-white" for="typeText">Nome da empresa</label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-outline">
+                                  <div class="row">
+                                    <div class="col-md-12">
+                                      <input type="text" id="cnpj" class="form-control" />
+                                      <label class="form-label text-white" for="typeText">CNPJ</label>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-outline">
+                                  <div class="row">
+                                    <div class="col-md-12">
+                                      <input type="email" id="typeEmail" class="form-control" />
+                                      <label class="form-label text-white" for="typeEmail">E-mail profissional</label>
+                                    </div>
+                                  </div>
+                                </div>
+
+
+                                <div class="d-grid gap-2">
+                                  <button class="btn btn-primary" type="submit">CADASTRAR</button>
+                                </div>
+
+                                <div class="form-group">
+                                  <p><a href="./feed.html">Cancelar</a></p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-5">
+                      </div>
+                    </div>
+                  </div>
+
+                                            
                 </div>
+                
                 <div
                   class="tab-pane fade"
                   id="v-pills-messages"
                   role="tabpanel"
                   aria-labelledby="v-pills-messages-tab"
                 >
-                  Messages content
+                  
                 </div>
               </div>
               <!-- Tab content -->
             </div>
 
           </div>
-        </div>
         
+          <div class="row" style="width: 104%;margin-left: -2%;">
+            <!-- Footer -->
+            <footer class="text-center text-lg-start bg-dark text-muted" style="padding-top: 1%;">
+                <!-- Section: Links  -->
+                <section class="">
+                    <div class="container text-center text-md-start mt-5">
+                        <!-- Grid row -->
+                        <div class="row mt-3">
+                            <!-- Grid column -->
+                            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                                <!-- Content -->
+                                <h5 class="text-uppercase fw-bold mb-4">
+                                    FourDevs
+                                    </h6>
+                                    <p>
+                                        fourdevs@contato.com.br
+                                    </p>
+                            </div>
+                            <!-- Grid column -->
+  
+                            <!-- Grid column -->
+  
+                            <!-- Grid column -->
+                            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                                <!-- Links -->
+                                <h5 class="text-uppercase fw-bold mb-4">
+                                    Links
+                                </h5>
+                                <p>
+                                    <a href="#!" class="text-reset">Inicio</a>
+                                </p>
+                                <p>
+                                    <a href="#!" class="text-reset">Perfil</a>
+                                </p>
+                                <p>
+                                    <a href="#!" class="text-reset">Feed</a>
+                                </p>
+  
+                            </div>
+                            <!-- Grid column -->
+  
+                            <!-- Grid column -->
+                            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                                <!-- Links -->
+                                <h5 class="text-uppercase fw-bold mb-4">
+                                    DEVs
+                                </h5>
+                                <p>
+                                    <a href="#!" class="text-reset">André Luiz Montanha</a>
+                                </p>
+                                <p>
+                                    <a href="#!" class="text-reset">Valmir Thume Junior</a>
+                                </p>
+                                <p>
+                                    <a href="#!" class="text-reset">Rodrigo Siveris Klein</a>
+                                </p>
+                                <p>
+                                    <a href="#!" class="text-reset">Leonardo Karling Sonco</a>
+                                </p>
+                            </div>
+  
+                            <!-- Grid column -->
+                            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                                <!-- Links -->
+                                <h5 class="text-uppercase fw-bold mb-4">
+                                    Contato
+                                </h5>
+                                <p></i> andremontanha.aluno@unipampa.edu.br</p>
+                                <p></i> valmirthume.aluno@unipampa.edu.br</p>
+                                <p></i> rodrigoklein.aluno@unipampa.edu.br</p>
+                                <p></i> leonardosonco.aluno@unipampa.edu.br</p>
+                            </div>
+                            <!-- Grid column -->
+                        </div>
+                        <!-- Grid row -->
+                    </div>
+                </section>
+                <!-- Section: Links  -->
+  
+                <!-- Copyright -->
+                <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+                    © 2021 Copyright:
+                    <a class="text-reset fw-bold" href="">FourDevs</a>
+                </div>
+                <!-- Copyright -->
+            </footer>
+            <!-- Footer -->
+        </div>
+
     </body>
 </html>
