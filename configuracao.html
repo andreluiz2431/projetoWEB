@@ -1,6 +1,7 @@
 <html>
 
     <head>
+      <meta charset="utf-8"/>
         <title>Configurações</title>
         <style>
           body {
@@ -116,15 +117,17 @@
                   
                 </div>
       
-                <div class="dropdown">
+                <div class="btn-group dropstart">
                   
                   <i class="fas fa-ellipsis-v"
-                  type="button"
+                    type="button"
                     id="dropdownMenuButton"
                     data-mdb-toggle="dropdown"
-                    aria-expanded="false"></i>
+                    aria-expanded="false">
+                    <span class="visually-hidden">Toggle Dropdown</span></i>
+
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item" href="#">Configurações</a></li>
+                    <li><a class="dropdown-item" href="./configuracao.html">Configurações</a></li>
                     <li><a class="dropdown-item" href="#">Sair</a></li>
                   </ul>
                 </div>
@@ -290,30 +293,31 @@
                 >
                   <!--Cadastro Empresa-->
                   
-                  <div class="container-fluid" style="margin-bottom: 15%;">
+                  <div class="container-fluid" style="margin-bottom: 13%;">
                     <div class="row">
                       <div class="col-md-3">
                       </div>
-                      <div class="col-md-6">
+                      <div class="col-md-7">
                         <div class="card bg-dark text-light">
-                          <div class="card-body" style="padding: 10%;">
+                          <div class="card-body" style="padding: 15%;">
                             <div class="row">
-                              <h1 class="d-flex justify-content-center">Cadastro de empresa</h1>
+                              <h1 class="d-flex justify-content-center">Cadastro empresa</h1>
                             </div>
                             <div class="row">
-                              <div class="col-md-12">
+                              <div class="col-md-10">
 
                                 <div class="form-outline">
-                                  <div class="row">
+                                  <div class="row" style="margin-top: 3%;">
                                     <div class="col-md-12">
                                       <input type="text" id="typeText" class="form-control" />
                                       <label class="form-label text-white" for="typeText">Nome da empresa</label>
+                                      
                                     </div>
                                   </div>
                                 </div>
 
                                 <div class="form-outline">
-                                  <div class="row">
+                                  <div class="row" style="margin-top: 6%;">
                                     <div class="col-md-12">
                                       <input type="text" id="cnpj" class="form-control" />
                                       <label class="form-label text-white" for="typeText">CNPJ</label>
@@ -322,7 +326,7 @@
                                 </div>
 
                                 <div class="form-outline">
-                                  <div class="row">
+                                  <div class="row" style="margin-top: 9%;">
                                     <div class="col-md-12">
                                       <input type="email" id="typeEmail" class="form-control" />
                                       <label class="form-label text-white" for="typeEmail">E-mail profissional</label>
@@ -330,14 +334,10 @@
                                   </div>
                                 </div>
 
-
                                 <div class="d-grid gap-2">
-                                  <button class="btn btn-primary" type="submit">CADASTRAR</button>
+                                  <button class="btn btn-primary" type="submit" style="margin-top: 12%;">CADASTRAR</button>
                                 </div>
 
-                                <div class="form-group">
-                                  <p><a href="./feed.html">Cancelar</a></p>
-                                </div>
                               </div>
                             </div>
                           </div>
@@ -453,6 +453,8 @@
             </footer>
             <!-- Footer -->
         </div>
+
+        <script type="text/javascript" src="./js/cadastroEmpresa.js"></script>
 
     </body>
 </html>

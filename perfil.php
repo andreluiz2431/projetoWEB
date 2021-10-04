@@ -115,15 +115,17 @@ $usuario->verificarLogado();
           <!-- Collapsible wrapper -->
 
           <!-- Right elements -->
-          <div class="d-flex align-items-center">
+          <div class="btn-group dropstart">
+                  
+            <i class="fas fa-ellipsis-v"
+              type="button"
+              id="dropdownMenuButton"
+              data-mdb-toggle="dropdown"
+              aria-expanded="false">
+              <span class="visually-hidden">Toggle Dropdown</span></i>
 
-          </div>
-
-          <div class="dropdown">
-
-            <i class="fas fa-ellipsis-v" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false"></i>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li><a class="dropdown-item" href="#">Configurações</a></li>
+              <li><a class="dropdown-item" href="./configuracao.html">Configurações</a></li>
               <li><a class="dropdown-item" href="#">Sair</a></li>
             </ul>
           </div>
