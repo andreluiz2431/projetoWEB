@@ -309,6 +309,7 @@ class Usuario
 
                 $_SESSION['id'] = $this->pdo->lastInsertId();
 
+                echo "<script>alert('" . $_SESSION['usuario'] . " cadastrado com sucesso!');</script>";
                 echo "<script>window.location.href = './perfil.php';</script>";
                 $this->inserirAcesso($_SESSION['id']);
             } catch (PDOException $e) {
