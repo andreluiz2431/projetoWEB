@@ -6,6 +6,10 @@ include './classes/class_usuario.php';
 $usuario = new Usuario();
 
 $usuario->verificarLogado();
+
+$usuario->puxaDados($_SESSION["id"]);
+
+//print($usuario->sobreUsuario);
 ?>
 <html>
 
@@ -116,12 +120,8 @@ $usuario->verificarLogado();
 
           <!-- Right elements -->
           <div class="btn-group dropstart">
-                  
-            <i class="fas fa-ellipsis-v"
-              type="button"
-              id="dropdownMenuButton"
-              data-mdb-toggle="dropdown"
-              aria-expanded="false">
+
+            <i class="fas fa-ellipsis-v" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
               <span class="visually-hidden">Toggle Dropdown</span></i>
 
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -146,7 +146,7 @@ $usuario->verificarLogado();
         </button>
       </div>
       <div class="col-md-12">
-        <img src="./img/perfil.gif" class="img-fluid" alt="Responsive image" style="height: 350px;width: 100%; object-fit: cover;">
+        <img src="./img/<?php echo $usuario->thumbUsuario ?>" class="img-fluid" alt="Responsive image" style="height: 350px;width: 100%; object-fit: cover;">
       </div>
     </div>
 
@@ -330,12 +330,28 @@ $usuario->verificarLogado();
                 <div class="row">
                   <div class="col-md-12">
                     <div class="d-flex flex-column align-items-center text-center">
-                      <img class="userImage" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                      <img class="userImage" src="<?php echo $usuario->imagemUsuario; ?>" alt="Admin" class="rounded-circle" width="150">
 
                       <div class="mt-3 ">
                         <h4><?php echo $_SESSION['usuario']; ?></h4>
-                        <p class="text-secondary mb-1">Full Stack Developer</p>
-                        <p class="text-muted font-size-sm">Alegrete, RS, Brasil</p>
+                        <p class="text-secondary mb-1">
+                          <?php
+                          if ($usuario->profissaoUsuario != "NULL") {
+                            echo $usuario->profissaoUsuario;
+                          } else {
+                            echo "Sua principal função no mercado (Ex: Full Stack)";
+                          }
+                          ?>
+                        </p>
+                        <p class="text-muted font-size-sm">
+                          <?php
+                          if ($usuario->enderecoUsuario != "NULL") {
+                            echo $usuario->enderecoUsuario;
+                          } else {
+                            echo "De onde você é? (Ex: Alegrete, RS, Brasil)";
+                          }
+                          ?>
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -364,7 +380,15 @@ $usuario->verificarLogado();
                       </div>
                     </div>
                     <div class="row">
-                      <p class="text-secondary mb-1">XXXXXXXXXXXXXXXXXXXXXXx</p>
+                      <p class="text-secondary mb-1">
+                        <?php
+                        if ($usuario->sobreUsuario != "NULL") {
+                          echo $usuario->sobreUsuario;
+                        } else {
+                          echo "Fale um poco sobre você!";
+                        }
+                        ?>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -433,26 +457,20 @@ $usuario->verificarLogado();
                         </button>
                       </div>
                     </div>
-                    <small>Web Design</small>
-                    <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small>Website Markup</small>
-                    <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small>One Page</small>
-                    <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small>Mobile Template</small>
-                    <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <small>Backend API</small>
-                    <div class="progress mb-3" style="height: 5px">
-                      <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
+
+                    <?php
+                    $count = 0;
+                    while ($count < sizeof($usuario->skill)) {
+
+                      echo '<small>' . $usuario->skill[$count] . '</small>';
+
+                      echo '<div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: ' . $usuario->valorSkill[$count] . '%" aria-valuenow="<?php echo $usuario->skill; ?>" aria-valuemin="0" aria-valuemax="10"></div>
+                        </div>';
+
+                      $count++;
+                    }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -469,30 +487,23 @@ $usuario->verificarLogado();
                         </button>
                       </div>
                     </div>
-                    <div class="row">
-                      <small>Xxxxxxxxxxxxxxx</small>
-                      <hr class="btn-primary">
-                    </div>
-                    <div class="row">
-                      <small>Xxxxxxxxxxxxxxx</small>
-                      <hr class="btn-primary">
-                    </div>
-                    <div class="row">
-                      <small>Xxxxxxxxxxxxxxx</small>
-                      <hr class="btn-primary">
-                    </div>
-                    <div class="row">
-                      <small>Xxxxxxxxxxxxxxx</small>
-                      <hr class="btn-primary">
-                    </div>
-                    <div class="row">
-                      <small>Xxxxxxxxxxxxxxx</small>
-                      <hr class="btn-primary">
-                    </div>
-                    <div class="row">
-                      <small>Xxxxxxxxxxxxxxx</small>
-                      <hr class="btn-primary">
-                    </div>
+                    <?php
+                    if (!sizeof($usuario->experiencia)) {
+                      echo "nada";
+                    } else {
+
+                      $count = 0;
+                      while ($count < sizeof($usuario->experiencia)) {
+
+                        echo '<div class="row">
+                        <small>' . $usuario->experiencia[$count] . '</small>
+                        <hr class="btn-primary">
+                        </div>';
+
+                        $count++;
+                      }
+                    }
+                    ?>
                   </div>
                 </div>
               </div>
@@ -601,11 +612,21 @@ $usuario->verificarLogado();
             <div class="row" style="margin-top: -4%;">
               <div class="col-md-1"></div>
               <div class="col-md-10">
-                <div class="card bg-dark text-light">
+
+                <?php
+                if (!sizeof($usuario->postPost)) {
+                  echo "nada";
+                } else {
+
+                  $count = 0;
+                  while ($count < sizeof($usuario->postPost)) {
+
+                    echo '
+                    <div class="card bg-dark text-light">
                   <div class="card-body">
                     <div class="row">
                       <div class="col-md-11">
-                        <h5 class="card-title">Card title</h5>
+                        <h5 class="card-title">' . $_SESSION["usuario"] . '</h5>
                       </div>
                       <div class="col-md-1">
                         <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
@@ -616,8 +637,9 @@ $usuario->verificarLogado();
                     <div class="row margem5">
                       <div class="col-md-12">
                         <p class="card-text">
-                          Some quick example text to build on the card title and make up the bulk of the
-                          card's content.
+                          ' . $usuario->postPost[$count] . '
+                          <br>
+                          ' . $usuario->dataHora[$count] . '
                         </p>
                       </div>
                     </div>
@@ -641,6 +663,15 @@ $usuario->verificarLogado();
                   </div>
                 </div>
                 <hr>
+                    ';
+
+                    $count++;
+                  }
+                }
+                ?>
+
+
+
 
 
 

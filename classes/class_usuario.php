@@ -210,7 +210,7 @@ class Usuario
     public function login($email, $senha)
     {
         $senhaCriptografada = md5($senha);
-        
+
         $this->conexao();
         $sql = $this->pdo->query("SELECT * FROM usuario WHERE (emailUsuario = '" . $email . "') AND (senhaUsuario = '" . $senhaCriptografada . "')");
         $ver = false; // pra caso algum estiver incorreto;
@@ -218,13 +218,72 @@ class Usuario
             $_SESSION['usuario'] = $linha['nomeUsuario'];
             $_SESSION['id'] = $linha['idUsuario'];
             $_SESSION['email'] = $linha['emailUsuario'];
-            
+
             $ver = true;
-            
+
             echo "<script>alert('" . $_SESSION['usuario'] . " logado com sucesso!');</script>";
             echo "<script>window.location.href= './perfil.php';</script>";
             $this->inserirAcesso($linha['idUsuario']);
-            
+
+            break;
+        }
+        if ($ver == false) {
+            return "Dados incorretos";
+        }
+    }
+
+    public $sobreUsuario;
+    public $enderecoUsuario;
+    public $profissaoUsuario;
+    public $imagemUsuario;
+    public $thumbUsuario;
+
+    public $skill;
+    public $valorSkill;
+
+    public $experiencia;
+
+    public $postPost;
+    public $dataHora;
+
+    public function puxaDados($id)
+    {
+
+        $this->conexao();
+        $sql = $this->pdo->query("SELECT * FROM usuario WHERE (idUsuario = '" . $id . "')");
+        $ver = false; // pra caso algum estiver incorreto;
+        while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) { // Para fazer o coisa percorrer a variável e realizar a consulta
+            $this->sobreUsuario = $linha['sobreUsuario'];
+            $this->enderecoUsuario = $linha['enderecoUsuario'];
+            $this->profissaoUsuario = $linha['profissaoUsuario'];
+            $this->imagemUsuario = $linha['imagemUsuario'];
+            $this->thumbUsuario = $linha['thumbUsuario'];
+
+            $this->conexao();
+            $sql = $this->pdo->query("SELECT * FROM skillusuario WHERE (idUsuario = '" . $id . "')");
+
+            while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) { // Para fazer o coisa percorrer a variável e realizar a consulta
+                $this->skill[] = $linha['skill'];
+                $this->valorSkill[] = $linha['valorSkill'];
+            }
+
+            $this->conexao();
+            $sql = $this->pdo->query("SELECT * FROM experienciausuario WHERE (idUsuario = '" . $id . "')");
+
+            while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) { // Para fazer o coisa percorrer a variável e realizar a consulta
+                $this->experiencia[] = $linha['experiencia'];
+            }
+
+            $this->conexao();
+            $sql = $this->pdo->query("SELECT * FROM post WHERE (idUsuario = '" . $id . "')");
+
+            while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) { // Para fazer o coisa percorrer a variável e realizar a consulta
+                $this->postPost[] = $linha['postPost'];
+                $this->dataHora[] = $linha['dataHoraPost'];
+            }
+
+            $ver = true;
+
             break;
         }
         if ($ver == false) {
@@ -252,7 +311,6 @@ class Usuario
 
                 echo "<script>window.location.href = './perfil.php';</script>";
                 $this->inserirAcesso($_SESSION['id']);
-
             } catch (PDOException $e) {
                 echo 'Error: ' . $e->getMessage();
                 return -1;

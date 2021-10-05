@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04-Out-2021 às 19:57
--- Versão do servidor: 10.4.21-MariaDB
--- versão do PHP: 8.0.10
+-- Tempo de geração: 05-Out-2021 às 04:23
+-- Versão do servidor: 10.4.18-MariaDB
+-- versão do PHP: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,6 +32,13 @@ CREATE TABLE `acessos` (
   `dataHoraAcesso` datetime NOT NULL,
   `idUsuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `acessos`
+--
+
+INSERT INTO `acessos` (`idAcesso`, `dataHoraAcesso`, `idUsuario`) VALUES
+(12, '2021-10-04 22:12:00', 1);
 
 -- --------------------------------------------------------
 
@@ -135,6 +142,13 @@ CREATE TABLE `experienciausuario` (
   `experiencia` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `experienciausuario`
+--
+
+INSERT INTO `experienciausuario` (`idExperiencia`, `idUsuario`, `experiencia`) VALUES
+(3, 1, 'sla');
+
 -- --------------------------------------------------------
 
 --
@@ -180,6 +194,14 @@ CREATE TABLE `skillusuario` (
   `valorSkill` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Extraindo dados da tabela `skillusuario`
+--
+
+INSERT INTO `skillusuario` (`idSkill`, `idUsuario`, `skill`, `valorSkill`) VALUES
+(1, 1, 'teste1', 10),
+(2, 1, 'teste2', 5);
+
 -- --------------------------------------------------------
 
 --
@@ -216,18 +238,19 @@ CREATE TABLE `usuario` (
   `sobreUsuario` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `enderecoUsuario` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `profissaoUsuario` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `imagemUsuario` text COLLATE utf8_unicode_ci DEFAULT NULL
+  `imagemUsuario` text COLLATE utf8_unicode_ci DEFAULT 'https://bootdey.com/img/Content/avatar/avatar7.png',
+  `thumbUsuario` varchar(400) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'perfil.gif'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`idUsuario`, `nomeUsuario`, `emailUsuario`, `senhaUsuario`, `sobreUsuario`, `enderecoUsuario`, `profissaoUsuario`, `imagemUsuario`) VALUES
-(1, 'Andre', 'alm28062001@gmail.com', 'b035c48a8fd9c3931489bd3eb936fc89', '', NULL, NULL, NULL),
-(2, 'joao', 'joao@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', '', NULL, NULL, NULL),
-(9, 'Andre Luiz Montanha', 'alm28062001@gmail.com', 'b035c48a8fd9c3931489bd3eb936fc89', '', NULL, NULL, NULL),
-(11, 'Leo', 'leonardo@gmai.com', 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL, NULL);
+INSERT INTO `usuario` (`idUsuario`, `nomeUsuario`, `emailUsuario`, `senhaUsuario`, `sobreUsuario`, `enderecoUsuario`, `profissaoUsuario`, `imagemUsuario`, `thumbUsuario`) VALUES
+(1, 'Andre', 'alm28062001@gmail.com', 'b035c48a8fd9c3931489bd3eb936fc89', 'sla', 'teste', 'Full Stack', 'https://bootdey.com/img/Content/avatar/avatar7.png', 'perfil.gif'),
+(2, 'joao', 'joao@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', NULL, NULL, NULL, 'https://bootdey.com/img/Content/avatar/avatar7.png', 'perfil.gif'),
+(9, 'Andre Luiz Montanha', 'alm28062001@gmail.com', 'b035c48a8fd9c3931489bd3eb936fc89', 'ola', NULL, NULL, 'https://bootdey.com/img/Content/avatar/avatar7.png', 'perfil.gif'),
+(11, 'Leo', 'leonardo@gmai.com', 'e10adc3949ba59abbe56e057f20f883e', NULL, NULL, NULL, 'https://bootdey.com/img/Content/avatar/avatar7.png', 'perfil.gif');
 
 --
 -- Índices para tabelas despejadas
@@ -307,7 +330,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `acessos`
 --
 ALTER TABLE `acessos`
-  MODIFY `idAcesso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idAcesso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `calc`
@@ -331,7 +354,7 @@ ALTER TABLE `curtida`
 -- AUTO_INCREMENT de tabela `experienciausuario`
 --
 ALTER TABLE `experienciausuario`
-  MODIFY `idExperiencia` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idExperiencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `post`
@@ -343,7 +366,7 @@ ALTER TABLE `post`
 -- AUTO_INCREMENT de tabela `skillusuario`
 --
 ALTER TABLE `skillusuario`
-  MODIFY `idSkill` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idSkill` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `tecnologias`
