@@ -45,50 +45,12 @@ $usuario->puxaFeed();
 </head>
 
 <body style="background-color: #090e11;">
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-dark text-white" style="position: fixed; z-index: 5;width: 100%;margin-top: -5%;">
-    <!-- Container wrapper -->
-    <div class="container-fluid">
-      <!-- Toggle button -->
-      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
+  <div class="row">
 
-      <!-- Collapsible wrapper -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- Left links -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-          <li class="nav-item">
-            <!-- Navbar brand -->
-            <a class="navbar-brand" href="#" style="margin-top: -10%; margin-bottom: -10%;">
-              <img src="./img/Logo.png" height="70" alt="" loading="lazy" />
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./index.html">
-              <div style="color: white;">Inicio</div>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./feed.php">
-              <div style="color: white;">Feed</div>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./perfil.php">
-              <div style="color: white;">Perfil</div>
-            </a>
-          </li>
-        </ul>
-        <!-- Collapsible wrapper -->
-
-        <!-- Right elements -->
-        <div class="d-flex align-items-center">
-        </div>
-        <!-- Right elements -->
-      </div>
-  </nav>
+    <?php
+    include "./navbar.php";
+    ?>
+  </div>
 
 
   <div class="container-fluid" style="margin-top: 5%;margin-bottom: 5%;">

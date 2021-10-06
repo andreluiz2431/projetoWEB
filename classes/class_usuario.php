@@ -120,7 +120,7 @@ class Usuario
     { //            Instanciar em todas as telas menos no Login e Cadastro
         session_start();
         if (!isset($_SESSION['usuario'])) {
-            echo "<script>window.location.href= './index.html';</script>";
+            echo "<script>window.location.href= './login.php';</script>";
         }
     }
 
