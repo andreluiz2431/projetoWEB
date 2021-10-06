@@ -60,7 +60,7 @@ session_start();
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./feed.html">
+            <a class="nav-link" href="./feed.php">
               <div style="color: white;">Feed</div>
             </a>
           </li>
@@ -83,11 +83,11 @@ session_start();
   <div class="container-fluid" style="margin-top: 15%; margin-bottom: 15%;">
     <div class="row">
       <div class="col-md-2"></div>
-      
+
       <div class="col-md-4">
         <img alt="Visualização da imagem de bootstrap" width="100%" src="./img/Logo.png" />
       </div>
-      
+
       <div class="col-md-4">
         <div class="card bg-dark text-light">
           <div class="card-body" style="padding: 10%;">
@@ -284,8 +284,8 @@ if (!empty($_POST["nome"])) {
     $senha2 = $_POST["senha2"];
 
     $check_email = mysqli_query($conn, "SELECT Email FROM crud where Email = '$email' ");
-    if(mysqli_num_rows($check_email) > 0){
-        echo('O e-mail informado já está cadastrado a um usuário.');
+    if (mysqli_num_rows($check_email) > 0) {
+      echo ('O e-mail informado já está cadastrado a um usuário.');
     }
 
     $saida = $usuario->cadastro($nome, $email, $senha1, $senha2);

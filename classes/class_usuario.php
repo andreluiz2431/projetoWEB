@@ -245,6 +245,8 @@ class Usuario
 
     public $postPost;
     public $dataHora;
+    public $idUsuarioPost;
+    public $nomeUsuarioPost;
 
     public function puxaDados($id)
     {
@@ -294,30 +296,30 @@ class Usuario
     public function cadastro($nome, $email, $senha1, $senha2)
     {
         $this->conexao();
-            $sql = $this->pdo->query("SELECT emailUsuario FROM usuario where emailUsuario = '$email' ");
-            $emailVerifica = 0;
-            while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) { // Para fazer o coisa percorrer a variável e realizar a consulta
-                $emailVerifica++;
-            }
-        if($emailVerifica > 0){
+        $sql = $this->pdo->query("SELECT emailUsuario FROM usuario where emailUsuario = '$email' ");
+        $emailVerifica = 0;
+        while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) { // Para fazer o coisa percorrer a variável e realizar a consulta
+            $emailVerifica++;
+        }
+        if ($emailVerifica > 0) {
             echo "<script>alert('O e-mail informado já está cadastrado a um usuário.');</script>";
-        }else{
+        } else {
 
             if ($senha1 == $senha2) {
                 $senhaCriptografada = md5($senha1);
-                
+
                 try { // usa pra fazer inserção ou update no PDO
                     $this->conexao();
                     $sql = $this->pdo->prepare("INSERT INTO usuario(nomeUsuario, emailUsuario, senhaUsuario) VALUES(:nomeUsuario,'" . $email . "','" . $senhaCriptografada . "')");
                     $sql->execute(array(':nomeUsuario' => "$nome")); // faz para executar o array em PDO para inserção
-                    
+
                     $_SESSION['usuario'] = $nome;
                     $_SESSION['email'] = $email;
-                    
+
                     // pegar id do usuario
-                    
+
                     $_SESSION['id'] = $this->pdo->lastInsertId();
-                    
+
                     echo "<script>alert('" . $_SESSION['usuario'] . " cadastrado com sucesso!');</script>";
                     echo "<script>window.location.href = './perfil.php';</script>";
                     $this->inserirAcesso($_SESSION['id']);
@@ -330,5 +332,23 @@ class Usuario
             }
         }
     }
+
+    public function puxaFeed()
+    {
+        $this->conexao();
+        $sql = $this->pdo->query("SELECT * FROM post");
+
+        while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) { // Para fazer o coisa percorrer a variável e realizar a consulta
+            $this->postPost[] = $linha['postPost'];
+            $this->dataHora[] = $linha['dataHoraPost'];
+            $this->idUsuarioPost[] = $linha['idUsuario'];
+
+            $this->conexao();
+            $sql1 = $this->pdo->query("SELECT nomeUsuario FROM usuario WHERE idUsuario = '" . $linha['idUsuario'] . "'");
+
+            while ($linha1 = $sql1->fetch(PDO::FETCH_ASSOC)) { // Para fazer o coisa percorrer a variável e realizar a consulta
+                $this->nomeUsuarioPost[] = $linha1['nomeUsuario'];
+            }
+        }
+    }
 }
-    

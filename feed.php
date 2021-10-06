@@ -1,8 +1,22 @@
+<?php
+
+
+include './classes/class_usuario.php';
+
+$usuario = new Usuario();
+
+//$usuario->verificarLogado();
+
+$usuario->puxaFeed();
+
+//print($usuario->sobreUsuario);
+?>
 <html>
 
 <head>
-  <meta charset="utf-8"/>
-  <title>Cadastro de Empresa</title>
+  <meta charset="utf-8" />
+  <title>Feed</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <style>
     .navbar,
     .card,
@@ -27,19 +41,16 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
   <!-- MDB -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+
 </head>
 
 <body style="background-color: #090e11;">
-
-
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-dark text-white"
-    style="position: fixed; z-index: 5;width: 100%;margin-top: -15%;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark text-white" style="position: fixed; z-index: 5;width: 100%;margin-top: -5%;">
     <!-- Container wrapper -->
     <div class="container-fluid">
       <!-- Toggle button -->
-      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fas fa-bars"></i>
       </button>
 
@@ -47,7 +58,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        
+
           <li class="nav-item">
             <!-- Navbar brand -->
             <a class="navbar-brand" href="#" style="margin-top: -10%; margin-bottom: -10%;">
@@ -70,78 +81,119 @@
             </a>
           </li>
         </ul>
-      <!-- Collapsible wrapper -->
+        <!-- Collapsible wrapper -->
 
-      <!-- Right elements -->
-      <div class="d-flex align-items-center">
+        <!-- Right elements -->
+        <div class="d-flex align-items-center">
+        </div>
+        <!-- Right elements -->
       </div>
-      <!-- Right elements -->
-    </div>
   </nav>
 
 
-  <div class="container-fluid" style="margin-top: 15%; margin-bottom: 15%;">
-    <div class="row">
-      <div class="col-md-4">
-      </div>
-      <div class="col-md-4">
-        <div class="card bg-dark text-light">
-          <div class="card-body" style="padding: 10%;">
-            <div class="row">
-              <h1 class="d-flex justify-content-center">Cadastro de empresa</h1>
+  <div class="container-fluid" style="margin-top: 5%;margin-bottom: 5%;">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-12">
+              <h3>Feed</h3>
             </div>
-            <div class="row">
-              <div class="col-md-12">
-
-                <div class="form-outline">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <input type="text" id="typeText" class="form-control" />
-                      <label class="form-label text-white" for="typeText">Nome da empresa</label>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class="form-outline">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <input type="text" id="cnpj" class="form-control" />
-                      <label class="form-label text-white" for="typeText">CNPJ</label>
-                    </div>
-                  </div>
-                </div>
-
-
-
-
-                <div class="form-outline">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <input type="email" id="typeEmail" class="form-control" />
-                      <label class="form-label text-white" for="typeEmail">E-mail profissional</label>
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class="d-grid gap-2">
-                  <button class="btn btn-primary" type="submit">CADASTRAR</button>
-                </div>
-
-                <div class="form-group">
-                  <p><a href="./feed.php">Cancelar</a></p>
-                </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="input-group">
+                <textarea class="form-control" style="background-color: #333;border: none;" placeholder="Escreva sua publicação para o Feed" aria-label="With textarea"></textarea>
+                <button class="btn btn-outline-primary" type="button" id="button-addon2" data-mdb-ripple-color="dark">
+                  Publicar
+                </button>
               </div>
             </div>
           </div>
+          <hr>
+
+          <?php
+          if ($usuario->postPost[0]) {
+
+            $count = 0;
+            while ($count < sizeof($usuario->postPost)) {
+              echo '
+              
+
+              <div class="row" style="margin-top: 10%;">
+                <div class="col-md-12">
+                  <div class="card bg-dark text-light">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-11">
+                          <h5 class="card-title">' . $usuario->nomeUsuarioPost[$count] . '</h5>
+                        </div>
+                        <div class="col-md-1">
+                          <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                            <img src="https://mdbootstrap.com/img/new/avatars/2.jpg" class="rounded-circle" height="25" alt="" loading="lazy" />
+                          </a>
+                        </div>
+                      </div>
+                      <div class="row margem5">
+                        <div class="col-md-12">
+                          <p class="card-text">
+                          ' . $usuario->postPost[$count] . '
+                          <br>
+                          ' . $usuario->dataHora[$count] . '
+                          </p>
+                        </div>
+                      </div>
+                      <div class="row margem5">
+                        <div class="col-md-12">
+                          <a class="fas fa-thumbs-up" style="margin-right: 2%;"></a>
+                          <a class="fas fa-thumbs-down" style="margin-right: 2%;"></a>
+                          <a class="fas fa-comment"></a>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="input-group">
+                            <textarea class="form-control" style="background-color: #333;border: none;" placeholder="Escreva um comentário" aria-label="With textarea"></textarea>
+                            <button class="btn btn-outline-primary" type="button" id="button-addon2" data-mdb-ripple-color="dark">
+                              Comentar
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr>
+
+
+
+              ';
+              $count++;
+            }
+          }
+          ?>
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
-      </div>
-      <div class="col-md-5">
+        <div class="col-md-4">
+        </div>
       </div>
     </div>
   </div>
-
   <!-- Footer -->
   <footer class="text-center text-lg-start bg-dark text-muted" style="padding-top: 1%;">
     <!-- Section: Links  -->
@@ -228,9 +280,6 @@
     <!-- Copyright -->
   </footer>
   <!-- Footer -->
-  <script type="text/javascript" src="./js/cadastroEmpresa.js"></script>
-
-
 </body>
 
 </html>

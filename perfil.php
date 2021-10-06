@@ -104,7 +104,7 @@ $usuario->puxaDados($_SESSION["id"]);
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./feed.html">
+                <a class="nav-link" href="./feed.php">
                   <div style="color: white;">Feed</div>
                 </a>
               </li>
@@ -459,17 +459,17 @@ $usuario->puxaDados($_SESSION["id"]);
                     </div>
 
                     <?php
-                    if($usuario->skill[0]){
+                    if ($usuario->skill[0]) {
 
                       $count = 0;
                       while ($count < sizeof($usuario->skill)) {
-                        
+
                         echo '<small>' . $usuario->skill[$count] . '</small>';
-                        
+
                         echo '<div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: ' . $usuario->valorSkill[$count]*10 . '%" aria-valuenow="<?php echo $usuario->skill; ?>" aria-valuemin="0" aria-valuemax="10"></div>
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: ' . $usuario->valorSkill[$count] * 10 . '%" aria-valuenow="<?php echo $usuario->skill; ?>" aria-valuemin="0" aria-valuemax="10"></div>
                         </div>';
-                        
+
                         $count++;
                       }
                     }
@@ -491,7 +491,7 @@ $usuario->puxaDados($_SESSION["id"]);
                       </div>
                     </div>
                     <?php
-                    if ($usuario->experiencia[0]) {                   
+                    if ($usuario->experiencia[0]) {
                       $count = 0;
                       while ($count < sizeof($usuario->experiencia)) {
 
@@ -614,7 +614,7 @@ $usuario->puxaDados($_SESSION["id"]);
               <div class="col-md-10">
 
                 <?php
-                if ($usuario->postPost[0]){
+                if ($usuario->postPost[0]) {
 
                   $count = 0;
                   while ($count < sizeof($usuario->postPost)) {
