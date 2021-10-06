@@ -293,31 +293,42 @@ class Usuario
 
     public function cadastro($nome, $email, $senha1, $senha2)
     {
-
-        if ($senha1 == $senha2) {
-            $senhaCriptografada = md5($senha1);
-
-            try { // usa pra fazer inserção ou update no PDO
-                $this->conexao();
-                $sql = $this->pdo->prepare("INSERT INTO usuario(nomeUsuario, emailUsuario, senhaUsuario) VALUES(:nomeUsuario,'" . $email . "','" . $senhaCriptografada . "')");
-                $sql->execute(array(':nomeUsuario' => "$nome")); // faz para executar o array em PDO para inserção
-
-                $_SESSION['usuario'] = $nome;
-                $_SESSION['email'] = $email;
-
-                // pegar id do usuario
-
-                $_SESSION['id'] = $this->pdo->lastInsertId();
-
-                echo "<script>alert('" . $_SESSION['usuario'] . " cadastrado com sucesso!');</script>";
-                echo "<script>window.location.href = './perfil.php';</script>";
-                $this->inserirAcesso($_SESSION['id']);
-            } catch (PDOException $e) {
-                echo 'Error: ' . $e->getMessage();
-                return -1;
+        $this->conexao();
+            $sql = $this->pdo->query("SELECT emailUsuario FROM usuario where emailUsuario = '$email' ");
+            $emailVerifica = 0;
+            while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) { // Para fazer o coisa percorrer a variável e realizar a consulta
+                $emailVerifica++;
             }
-        } else {
-            return "As senhas não correspondem";
+        if($emailVerifica > 0){
+            echo "<script>alert('O e-mail informado já está cadastrado a um usuário.');</script>";
+        }else{
+
+            if ($senha1 == $senha2) {
+                $senhaCriptografada = md5($senha1);
+                
+                try { // usa pra fazer inserção ou update no PDO
+                    $this->conexao();
+                    $sql = $this->pdo->prepare("INSERT INTO usuario(nomeUsuario, emailUsuario, senhaUsuario) VALUES(:nomeUsuario,'" . $email . "','" . $senhaCriptografada . "')");
+                    $sql->execute(array(':nomeUsuario' => "$nome")); // faz para executar o array em PDO para inserção
+                    
+                    $_SESSION['usuario'] = $nome;
+                    $_SESSION['email'] = $email;
+                    
+                    // pegar id do usuario
+                    
+                    $_SESSION['id'] = $this->pdo->lastInsertId();
+                    
+                    echo "<script>alert('" . $_SESSION['usuario'] . " cadastrado com sucesso!');</script>";
+                    echo "<script>window.location.href = './perfil.php';</script>";
+                    $this->inserirAcesso($_SESSION['id']);
+                } catch (PDOException $e) {
+                    echo 'Error: ' . $e->getMessage();
+                    return -1;
+                }
+            } else {
+                return "As senhas não correspondem";
+            }
         }
     }
 }
+    

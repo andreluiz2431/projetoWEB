@@ -283,6 +283,11 @@ if (!empty($_POST["nome"])) {
     $senha1 = $_POST["senha"];
     $senha2 = $_POST["senha2"];
 
+    $check_email = mysqli_query($conn, "SELECT Email FROM crud where Email = '$email' ");
+    if(mysqli_num_rows($check_email) > 0){
+        echo('O e-mail informado já está cadastrado a um usuário.');
+    }
+
     $saida = $usuario->cadastro($nome, $email, $senha1, $senha2);
 
     if ($saida == "As senhas não correspondem") {
