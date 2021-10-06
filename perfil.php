@@ -75,6 +75,24 @@ $usuario->puxaDados($_SESSION["id"]);
 
 <body>
 
+  <div id="pegarEmail">
+    <?php
+    echo $_SESSION['email'];
+    ?>
+  </div>
+
+  <script>
+    function mostra_oculta() {
+      var x = document.getElementById("pegarEmail");
+      x.style.display = "none";
+
+    }
+    mostra_oculta();
+  </script>
+
+
+
+
   <div class="container-fluid">
     <div class="row">
 
@@ -265,11 +283,7 @@ $usuario->puxaDados($_SESSION["id"]);
 
 
 
-    <input type="button" value="Criar PDF" id="btnImprimir" onclick="CriaPDF()"   />
-
-
-
-
+    <input type="button" value="Criar PDF" id="btnImprimir" onclick="CriaPDF()" />
 
 
     <div class="row">
@@ -286,7 +300,7 @@ $usuario->puxaDados($_SESSION["id"]);
                       <img class="userImage" src="<?php echo $usuario->imagemUsuario; ?>" alt="Admin" class="rounded-circle" width="150">
 
                       <div class="mt-3 ">
-                        <h4><?php echo $_SESSION['usuario']; ?></h4>
+                        <h4 id="pegarNome"><?php echo $_SESSION['usuario']; ?></h4>
                         <p class="text-secondary mb-1">
                           <?php
                           if ($usuario->profissaoUsuario != "NULL") {
@@ -297,13 +311,15 @@ $usuario->puxaDados($_SESSION["id"]);
                           ?>
                         </p>
                         <p class="text-muted font-size-sm">
-                          <?php
-                          if ($usuario->enderecoUsuario != "NULL") {
-                            echo $usuario->enderecoUsuario;
-                          } else {
-                            echo "De onde você é? (Ex: Alegrete, RS, Brasil)";
-                          }
-                          ?>
+                          <div id="CEP">
+                            <?php
+                            if ($usuario->enderecoUsuario != "NULL") {
+                              echo $usuario->enderecoUsuario;
+                            } else {
+                              echo "De onde você é? (Ex: Alegrete, RS, Brasil)";
+                            }
+                            ?>
+                          </div>
                         </p>
                       </div>
                     </div>
@@ -319,14 +335,14 @@ $usuario->puxaDados($_SESSION["id"]);
           </div>
           <div class="col-md-8">
             <div class="card mb-3 border-0 bg-dark text-white">
-              <div class="card-body" id="pegarSobre">
+              <div class="card-body">
                 <div class="row">
                   <div class="col-md-12">
                     <div class="row">
                       <div class="col-md-11">
                         <h3>Sobre</h3>
                       </div>
-                      <div class="col-md-1" id="botaoSobre">
+                      <div class="col-md-1">
                         <button type="button" class="btn btn-outline-primary btn-floating" data-mdb-toggle="modal" data-mdb-target="#modalSobre">
                           <i class="fas fa-pen"></i>
                         </button>
@@ -334,13 +350,15 @@ $usuario->puxaDados($_SESSION["id"]);
                     </div>
                     <div class="row">
                       <p class="text-secondary mb-1">
-                        <?php
-                        if ($usuario->sobreUsuario != "NULL") {
-                          echo $usuario->sobreUsuario;
-                        } else {
-                          echo "Fale um poco sobre você!";
-                        }
-                        ?>
+                        <div id="pegarSobre">
+                          <?php
+                          if ($usuario->sobreUsuario != "NULL") {
+                            echo $usuario->sobreUsuario;
+                          } else {
+                            echo "Fale um poco sobre você!";
+                          }
+                          ?>
+                        </div>
                       </p>
                     </div>
                   </div>
@@ -399,64 +417,67 @@ $usuario->puxaDados($_SESSION["id"]);
             <div class="row" style="margin-top: -11%;">
               <div class="col-md-6">
                 <div class="card h-100 border-0 bg-dark text-white">
-                  <div class="card-body" id="pegarSkill">
+                  <div class="card-body">
                     <div class="row">
                       <div class="col-md-10">
                         <h3 class="d-flex align-items-center mb-3">Skills</h3>
                       </div>
-                      <div class="col-md-2" id=botaoSkill>
+                      <div class="col-md-2">
                         <button type="button" class="btn btn-outline-primary btn-floating" data-mdb-toggle="modal" data-mdb-target="#modalSkills">
                           <i class="fas fa-pen"></i>
                         </button>
                       </div>
                     </div>
+                    <div id="pegarSkill">
+                      <?php
+                      if ($usuario->skill[0]) {
+                        $count = 0;
+                        while ($count < sizeof($usuario->skill)) {
 
-                    <?php
-                    
-                    if ($usuario->skill[0]) {
-                      $count = 0;
-                      while ($count < sizeof($usuario->skill)) {
+                          echo '<small>' . $usuario->skill[$count] . '</small>';
 
-                        echo '<small>' . $usuario->skill[$count] . '</small>';
-
-                        echo '<div class="progress mb-3" style="height: 5px">
+                          echo '<div class="progress mb-3" style="height: 5px">
                         <div class="progress-bar bg-primary" role="progressbar" style="width: ' . $usuario->valorSkill[$count] * 10 . '%" aria-valuenow="<?php echo $usuario->skill; ?>" aria-valuemin="0" aria-valuemax="10"></div>
                         </div>';
 
-                        $count++;
+                          $count++;
+                        }
                       }
-                    }
-                    ?>
+                      ?>
+                    </div>
                   </div>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="card h-100 border-0 bg-dark text-white">
-                  <div class="card-body" id="pegarExperiencia">
+                  <div class="card-body">
                     <div class="row">
                       <div class="col-md-10">
                         <h3 class="d-flex align-items-center mb-3">Experiência</h3>
                       </div>
-                      <div class="col-md-2" id="botaoExp">
+                      <div class="col-md-2">
                         <button type="button" class="btn btn-outline-primary btn-floating" data-mdb-toggle="modal" data-mdb-target="#modalExperiencia">
                           <i class="fas fa-pen"></i>
                         </button>
                       </div>
                     </div>
-                    <?php
-                    if ($usuario->experiencia[0]) {
-                      $count = 0;
-                      while ($count < sizeof($usuario->experiencia)) {
 
-                        echo '<div class="row">
+                    <div id="pegarExperiencia">
+                      <?php
+                      if ($usuario->experiencia[0]) {
+                        $count = 0;
+                        while ($count < sizeof($usuario->experiencia)) {
+
+                          echo '<div class="row"> 
                         <small>' . $usuario->experiencia[$count] . '</small>
                         <hr class="btn-primary">
                         </div>';
 
-                        $count++;
+                          $count++;
+                        }
                       }
-                    }
-                    ?>
+                      ?>
+                    </div>
                   </div>
                 </div>
               </div>
