@@ -283,7 +283,7 @@ $usuario->puxaDados($_SESSION["id"]);
 
 
 
-    <input type="button" value="Criar PDF" id="btnImprimir" onclick="CriaPDF()" />
+    <input style="margin-top: 50px;position: absolute" type="button" class="btn btn-primary" value="Gerar PDF" id="btnImprimir" onclick="CriaPDF()" />
 
 
     <div class="row">
