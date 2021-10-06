@@ -459,16 +459,19 @@ $usuario->puxaDados($_SESSION["id"]);
                     </div>
 
                     <?php
-                    $count = 0;
-                    while ($count < sizeof($usuario->skill)) {
+                    if($usuario->skill[0]){
 
-                      echo '<small>' . $usuario->skill[$count] . '</small>';
-
-                      echo '<div class="progress mb-3" style="height: 5px">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: ' . $usuario->valorSkill[$count] . '%" aria-valuenow="<?php echo $usuario->skill; ?>" aria-valuemin="0" aria-valuemax="10"></div>
+                      $count = 0;
+                      while ($count < sizeof($usuario->skill)) {
+                        
+                        echo '<small>' . $usuario->skill[$count] . '</small>';
+                        
+                        echo '<div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: ' . $usuario->valorSkill[$count]*10 . '%" aria-valuenow="<?php echo $usuario->skill; ?>" aria-valuemin="0" aria-valuemax="10"></div>
                         </div>';
-
-                      $count++;
+                        
+                        $count++;
+                      }
                     }
                     ?>
                   </div>
@@ -488,10 +491,7 @@ $usuario->puxaDados($_SESSION["id"]);
                       </div>
                     </div>
                     <?php
-                    if (!sizeof($usuario->experiencia)) {
-                      echo "nada";
-                    } else {
-
+                    if ($usuario->experiencia[0]) {                   
                       $count = 0;
                       while ($count < sizeof($usuario->experiencia)) {
 
@@ -614,9 +614,7 @@ $usuario->puxaDados($_SESSION["id"]);
               <div class="col-md-10">
 
                 <?php
-                if (!sizeof($usuario->postPost)) {
-                  echo "nada";
-                } else {
+                if ($usuario->postPost[0]){
 
                   $count = 0;
                   while ($count < sizeof($usuario->postPost)) {
