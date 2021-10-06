@@ -265,6 +265,13 @@ $usuario->puxaDados($_SESSION["id"]);
 
 
 
+    <input type="button" value="Criar PDF" id="btnImprimir" onclick="CriaPDF()" />
+
+
+
+
+
+
     <div class="row">
       <div class="col-md-2">
       </div>
@@ -617,10 +624,6 @@ $usuario->puxaDados($_SESSION["id"]);
 
 
 
-
-
-
-
               </div>
             </div>
 
@@ -724,6 +727,14 @@ $usuario->puxaDados($_SESSION["id"]);
     <!-- MDB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
     <script type="text/javascript" src="./js/perfil.js"></script>
+    <script type="text/javascript" src="./js/geraPDF.js"></script>
+
 </body>
+
+
+
+
+
+
 
 </html>
