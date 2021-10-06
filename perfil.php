@@ -319,7 +319,7 @@ $usuario->puxaDados($_SESSION["id"]);
           </div>
           <div class="col-md-8">
             <div class="card mb-3 border-0 bg-dark text-white">
-              <div class="card-body">
+              <div class="card-body" id="pegarSobre">
                 <div class="row">
                   <div class="col-md-12">
                     <div class="row">
@@ -432,7 +432,7 @@ $usuario->puxaDados($_SESSION["id"]);
               </div>
               <div class="col-md-6">
                 <div class="card h-100 border-0 bg-dark text-white">
-                  <div class="card-body">
+                  <div class="card-body" id="pegarExperiencia">
                     <div class="row">
                       <div class="col-md-10">
                         <h3 class="d-flex align-items-center mb-3">Experiência</h3>

@@ -1,8 +1,8 @@
 function CriaPDF() {
    
     var Skil = document.getElementById('pegarSkill').innerHTML;
-    
-
+    var Exp = document.getElementById('pegarExperiencia').innerHTML;
+    var Sobre = document.getElementById('pegarSobre').innerHTML;
 
     var style = "<style>";
     style = style + "table {width: 100%;font: 20px Calibri;}";
@@ -23,13 +23,15 @@ function CriaPDF() {
     win.document.write('</head>');
     
     win.document.write('<body>');
-    win.document.write('OBJETIVO<br>');  
-             
+      
+    win.document.write(Sobre);         
     
-    win.document.write('HABILIDADES<br>');
+    
     win.document.write(Skil);
 
-    win.document.write('EXPERIÊNCIA<br>');
+    
+    win.document.write(Exp);
+
     win.document.write('</body></html>');
     win.document.close(); 	                                         // FECHA A JANELA
     win.print();                                                     // IMPRIME O CONTEUDO
