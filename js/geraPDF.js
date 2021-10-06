@@ -1,8 +1,39 @@
+function mostra_ocultaSkill(){
+
+    var botaoSobre = document.getElementById("botaoSobre");
+    var botaoSkill = document.getElementById("botaoSkill");
+    var botaoExp = document.getElementById("botaoExp");
+    
+    if (botaoSobre.style.display === "none") {
+        botaoSobre.style.display = "block";
+    } else {
+        botaoSobre.style.display = "none";
+    }
+
+    if (botaoSkill.style.display === "none") {
+        botaoSkill.style.display = "block";
+    } else {
+        botaoSkill.style.display = "none";
+    }
+
+    if (botaoExp.style.display === "none") {
+        botaoExp.style.display = "block";
+    } else {
+        botaoExp.style.display = "none";
+    }
+
+}
+
+
 function CriaPDF() {
-   
+    
+    mostra_ocultaSkill();
+    
     var Skil = document.getElementById('pegarSkill').innerHTML;
     var Exp = document.getElementById('pegarExperiencia').innerHTML;
     var Sobre = document.getElementById('pegarSobre').innerHTML;
+
+    mostra_ocultaSkill();
 
     var style = "<style>";
     style = style + "table {width: 100%;font: 20px Calibri;}";
@@ -37,3 +68,5 @@ function CriaPDF() {
     win.print();                                                     // IMPRIME O CONTEUDO
 
 }
+
+

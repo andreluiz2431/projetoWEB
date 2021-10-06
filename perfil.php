@@ -265,7 +265,7 @@ $usuario->puxaDados($_SESSION["id"]);
 
 
 
-    <input type="button" value="Criar PDF" id="btnImprimir" onclick="CriaPDF()" />
+    <input type="button" value="Criar PDF" id="btnImprimir" onclick="CriaPDF()"   />
 
 
 
@@ -326,7 +326,7 @@ $usuario->puxaDados($_SESSION["id"]);
                       <div class="col-md-11">
                         <h3>Sobre</h3>
                       </div>
-                      <div class="col-md-1">
+                      <div class="col-md-1" id="botaoSobre">
                         <button type="button" class="btn btn-outline-primary btn-floating" data-mdb-toggle="modal" data-mdb-target="#modalSobre">
                           <i class="fas fa-pen"></i>
                         </button>
@@ -397,14 +397,14 @@ $usuario->puxaDados($_SESSION["id"]);
           </div>
           <div class="col-md-8">
             <div class="row" style="margin-top: -11%;">
-              <div class="col-md-6" id="pegarSkill" >
+              <div class="col-md-6">
                 <div class="card h-100 border-0 bg-dark text-white">
-                  <div class="card-body" >
-                    <div class="row" >
-                      <div class="col-md-10"  >
+                  <div class="card-body" id="pegarSkill">
+                    <div class="row">
+                      <div class="col-md-10">
                         <h3 class="d-flex align-items-center mb-3">Skills</h3>
                       </div>
-                      <div class="col-md-2">
+                      <div class="col-md-2" id=botaoSkill>
                         <button type="button" class="btn btn-outline-primary btn-floating" data-mdb-toggle="modal" data-mdb-target="#modalSkills">
                           <i class="fas fa-pen"></i>
                         </button>
@@ -437,7 +437,7 @@ $usuario->puxaDados($_SESSION["id"]);
                       <div class="col-md-10">
                         <h3 class="d-flex align-items-center mb-3">Experiência</h3>
                       </div>
-                      <div class="col-md-2">
+                      <div class="col-md-2" id="botaoExp">
                         <button type="button" class="btn btn-outline-primary btn-floating" data-mdb-toggle="modal" data-mdb-target="#modalExperiencia">
                           <i class="fas fa-pen"></i>
                         </button>
