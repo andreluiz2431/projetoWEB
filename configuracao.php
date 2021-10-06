@@ -7,6 +7,12 @@ $usuario->verificarLogado();
 
 $usuario->puxaDados($_SESSION["id"]);
 
+if ($usuario->cnpj) {
+  $possuiEmpresa = true;
+} else {
+  $possuiEmpresa = false;
+}
+
 //print($usuario->sobreUsuario);
 ?>
 <html>
@@ -384,8 +390,6 @@ if (!empty($_POST["nome"])) {
     echo "<script>alert('As senhas não coincidem!');</script>";
   }
 }
-
-$possuiEmpresa = false;
 
 if (!empty($_POST["cnpj"])) {
   $nomeEmpresa = $_POST["nomeEmpresa"];

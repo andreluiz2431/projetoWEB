@@ -248,6 +248,10 @@ class Usuario
     public $idUsuarioPost;
     public $nomeUsuarioPost;
 
+    public $cnpj;
+    public $nomeEmpresa;
+    public $emailEmpresa;
+
     public function puxaDados($id)
     {
 
@@ -282,6 +286,15 @@ class Usuario
             while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) { // Para fazer o coisa percorrer a variável e realizar a consulta
                 $this->postPost[] = $linha['postPost'];
                 $this->dataHora[] = $linha['dataHoraPost'];
+            }
+
+            $this->conexao();
+            $sql = $this->pdo->query("SELECT * FROM empresa WHERE (idUsuario = '" . $id . "')");
+
+            while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) { // Para fazer o coisa percorrer a variável e realizar a consulta
+                $this->cnpj = $linha['cnpj'];
+                $this->nomeEmpresa = $linha['nomeEmpresa'];
+                $this->emailEmpresa = $linha['emailEmpresa'];
             }
 
             $ver = true;
