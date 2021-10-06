@@ -397,11 +397,11 @@ $usuario->puxaDados($_SESSION["id"]);
           </div>
           <div class="col-md-8">
             <div class="row" style="margin-top: -11%;">
-              <div class="col-md-6">
+              <div class="col-md-6" id="pegarSkill" >
                 <div class="card h-100 border-0 bg-dark text-white">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-md-10">
+                  <div class="card-body" >
+                    <div class="row" >
+                      <div class="col-md-10"  >
                         <h3 class="d-flex align-items-center mb-3">Skills</h3>
                       </div>
                       <div class="col-md-2">
@@ -412,8 +412,8 @@ $usuario->puxaDados($_SESSION["id"]);
                     </div>
 
                     <?php
+                    
                     if ($usuario->skill[0]) {
-
                       $count = 0;
                       while ($count < sizeof($usuario->skill)) {
 

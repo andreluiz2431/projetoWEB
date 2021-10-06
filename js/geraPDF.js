@@ -1,5 +1,9 @@
 function CriaPDF() {
-    var minhaTabela = document.getElementById('exampleModalLabel').innerHTML;
+   
+    var Skil = document.getElementById('pegarSkill').innerHTML;
+    
+
+
     var style = "<style>";
     style = style + "table {width: 100%;font: 20px Calibri;}";
     style = style + "table, th, td {border: solid 1px #DDD; border-collapse: collapse;";
@@ -9,6 +13,7 @@ function CriaPDF() {
    
    
     var win = window.open('', '', 'height=700,width=700');
+    
     win.document.write('<html><head>');
     win.document.write('<title>Currículo-FourDevs</title>');   // <title> CABEÇALHO DO PDF.
     win.document.write(style);  // INCLUI UM ESTILO NA TAB HEAD
@@ -22,7 +27,7 @@ function CriaPDF() {
              
     
     win.document.write('HABILIDADES<br>');
-    win.document.write(skillusuario);
+    win.document.write(Skil);
 
     win.document.write('EXPERIÊNCIA<br>');
     win.document.write('</body></html>');
