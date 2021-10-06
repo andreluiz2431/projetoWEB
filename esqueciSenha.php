@@ -1,51 +1,17 @@
-<?php
-session_start();
-?>
 <html>
 
 <head>
-  <title>Login</title>
+  <meta charset="utf-8" />
+  <title>Recuperar Senha</title>
   <style>
-    body {
-      background-color: #090e11;
-      width: 101%;
-      overflow-x: hidden;
-    }
-
-    .cardsDir {
-      margin-top: -5%
-    }
-
-    .card {
-      margin-top: 5%;
-      margin-bottom: 5%;
-      padding: 5%;
-      border-radius: 10px;
-    }
-
-    .iconsTec {
-      margin-right: -5%;
-      border-radius: 50%;
-      border-color: black;
-      border: 2px;
-      width: 70px;
-      height: 70px;
-      box-shadow: 0 0 1em black;
-    }
-
-    textarea {
-      box-shadow: 0 0 0.4em black;
-    }
-
     .navbar,
     .card,
     footer {
       box-shadow: 0 0 2em black;
     }
 
-    .userImage {
-      border-radius: 50%;
-      box-shadow: 0 0 2em blue;
+    textarea {
+      box-shadow: 0 0 0.4em black;
     }
 
     .margem5 {
@@ -110,71 +76,49 @@ session_start();
         <!-- Right elements -->
       </div>
   </nav>
-
-
   <div class="container-fluid" style="margin-top: 15%; margin-bottom: 15%;">
     <div class="row">
-      <div class="col-md-2">
-      </div>
       <div class="col-md-4">
-        <img alt="Visualização da imagem de bootstrap" width="100%" src="./img/Logo.png" />
       </div>
       <div class="col-md-4">
         <div class="card bg-dark text-light">
           <div class="card-body" style="padding: 10%;">
             <div class="row">
-              <h1 class="d-flex justify-content-center">LOGIN</h1>
+              <h1 class="d-flex justify-content-center">Recuperar senha</h1>
             </div>
             <div class="row">
               <div class="col-md-12">
-                <form method="post" action="login.php">
-                  <div class="form-outline">
-                    <div class="row">
-                      <div class="col-md-12">
-                        <input type="email" id="typeEmail" name="email" class="form-control" />
-                        <label class="form-label text-white" for="typeEmail">E-mail</label>
-                      </div>
+
+                <div class="form-outline">
+                  <div class="row" style="margin-top: 5%; margin-bottom: 5%;">
+                    <div class="col-md-12">
+                      <input type="email" id="typeEmail" class="form-control" />
+                      <label class="form-label text-white" for="typeEmail">E-mail de recuperação</label>
                     </div>
                   </div>
+                </div>
 
 
+                <div class="d-grid gap-2">
+                  <button class="btn btn-primary" type="submit">Enviar</button>
+                </div>
 
-                  <div class="form-outline">
-                    <div class="row">
-                      <div class="col-md-12">
-                        <input type="password" id="senha" name="senha" class="form-control" />
-                        <label class="form-label text-white" for="typePassword">Password</label>
-                      </div>
-                    </div>
-                  </div>
+                <div class="form-group">
+                  <p><a href="./feed.php">Cancelar</a></p>
+                </div>
+                <p style="color:rgb(165, 161, 161)">
+                  *será enviado para seu e-mail um link com validade de 12 horas para efetuar a troca da senha
+                </p>
 
-
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" onclick="mostrarSenha()" />
-                    <script type="text/javascript" src="./js/login.js"></script>
-                    <label class="form-check-label" for="flexCheckDefault">
-                      Mostrar senha
-                    </label>
-                  </div>
-
-                  <div class="form-group">
-                    <a href="./esqueciSenha.php"> Esqueci minha senha</a>
-                  </div>
-
-                  <div class="d-grid gap-2">
-                    <button class="btn btn-primary" type="submit">ENTRAR</button>
-                  </div>
-
-                  <div class="form-group">
-                    <p>Não tem uma conta?<a href="./cadastro.php"> Registre-se</a></p>
-                  </div>
-                </form>
+                <p style="color:rgb(165, 161, 161)">
+                  Recomendações:<br /> -Cuidado com a senha que irá colocar<br /> -Não compartilhe sua senha com ninguém
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-5">
       </div>
     </div>
   </div>
@@ -266,24 +210,6 @@ session_start();
   </footer>
   <!-- Footer -->
 
-
 </body>
 
 </html>
-<?php
-if (!empty($_POST["email"])) {
-
-  include "./classes/class_usuario.php";
-
-  $usuario = new Usuario();
-
-  $email = $_POST["email"];
-  $senha = $_POST["senha"];
-
-  $saida = $usuario->login($email, $senha);
-
-  if ($saida == "Dados incorretos") {
-    echo "<script>alert('" . $saida . "');</script>";
-  }
-}
-?>

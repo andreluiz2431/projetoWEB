@@ -333,6 +333,64 @@ class Usuario
         }
     }
 
+    public function cadastroEmpresa($idUsuario, $nomeEmpresa, $cnpj, $emailProfissional)
+    {
+        try { // usa pra fazer inserção ou update no PDO
+            $this->conexao();
+            $sql = $this->pdo->prepare("INSERT INTO empresa(cnpj, idUsuario, nomeEmpresa, emailEmpresa) VALUES(" . $cnpj . ",'" . $idUsuario . "','" . $nomeEmpresa . "','" . $emailProfissional . "')");
+            $sql->execute(array(':cnpj' => "$cnpj")); // faz para executar o array em PDO para inserção
+
+            echo "<script>alert('Empresa " . $nomeEmpresa . " cadastrada com sucesso!');</script>";
+            echo "<script>window.location.href = './perfil.php';</script>";
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+            return -1;
+        }
+    }
+
+    public function editarEmpresa($idUsuario, $nomeEmpresa, $cnpj, $emailEmpresa)
+    {
+        $this->conexao();
+        $sql = $this->pdo->query("SELECT * FROM empresa WHERE idUsuario = " . $idUsuario . "");
+        while ($linha = $sql->fetch(PDO::FETCH_ASSOC)) {
+            $cnpjBD = $linha['cnpj'];
+            $nomeEmpresaBD = $linha['nomeEmpresa'];
+            $emailEmpresaBD = $linha['emailEmpresa'];
+
+            if ($cnpj != $cnpjBD) {
+                try {
+                    $sql1 = $this->pdo->prepare("UPDATE empresa SET cnpj='" . $cnpj . "' WHERE idUsuario=" . $idUsuario . "");
+                    $sql1->execute(array(':cnpj' => "$cnpj"));
+                } catch (PDOexception $e) { // verificação para caso se der errado
+                    echo "ERRO:" . $e->getMessege();
+                }
+            } elseif ($nomeEmpresaBD != $nomeEmpresa) {
+                try {
+                    $sql1 = $this->pdo->prepare("UPDATE empresa SET nomeEmpresa='" . $nomeEmpresa . "' WHERE idUsuario=" . $idUsuario . "");
+                    $sql1->execute(array(':nomeEmpresa' => "$nomeEmpresa"));
+                } catch (PDOexception $e) { // verificação para caso se der errado
+                    echo "ERRO:" . $e->getMessege();
+                }
+            } elseif ($emailEmpresaBD != $emailEmpresa) {
+                try {
+                    $sql1 = $this->pdo->prepare("UPDATE empresa SET emailEmpresa='" . $emailEmpresa . "' WHERE idUsuario=" . $idUsuario . "");
+                    $sql1->execute(array(':emailEmpresa' => "$emailEmpresa"));
+                } catch (PDOexception $e) { // verificação para caso se der errado
+                    echo "ERRO:" . $e->getMessege();
+                }
+            } elseif ($cnpj != $cnpjBD && $nomeEmpresaBD != $nomeEmpresa && $emailEmpresaBD != $emailEmpresa) {
+                try {
+                    $sql1 = $this->pdo->prepare("UPDATE empresa SET cnpj='" . $cnpj . "', nomeEmpresa='" . $nomeEmpresa . "', emailEmpresa='" . $emailEmpresa . "'  WHERE idUsuario=" . $idUsuario . "");
+                    $sql1->execute(array(':cnpj' => "$cnpj"));
+                } catch (PDOexception $e) { // verificação para caso se der errado
+                    echo "ERRO:" . $e->getMessege();
+                }
+            } else {
+                return "Nenhum dado alterado";
+            }
+        }
+    }
+
     public function puxaFeed()
     {
         $this->conexao();

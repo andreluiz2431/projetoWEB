@@ -1,6 +1,4 @@
 <?php
-
-
 include './classes/class_usuario.php';
 
 $usuario = new Usuario();
@@ -184,6 +182,10 @@ $usuario->puxaDados($_SESSION["id"]);
                           <div class="d-grid gap-2">
                             <script type="text/javascript" src="./js/cadastro.js"></script>
                             <button class="btn btn-primary" type="submit">REDEFINIR </button>
+                          </div>
+
+                          <div class="form-group">
+                            <a href="./esqueciSenha.php"> Esqueci minha senha</a>
                           </div>
 
                         </form>
@@ -380,6 +382,36 @@ if (!empty($_POST["nome"])) {
     }
   } else {
     echo "<script>alert('As senhas não coincidem!');</script>";
+  }
+}
+
+$possuiEmpresa = false;
+
+if (!empty($_POST["cnpj"])) {
+  $nomeEmpresa = $_POST["nomeEmpresa"];
+  $cnpj = $_POST["cnpj"];
+  $emailProfissional = $_POST["emailProfissional"];
+
+  if ($possuiEmpresa == true) {
+    // realiza o UPDATE
+
+    $saida = $usuario->editarEmpresa($_SESSION["id"], $nomeEmpresa, $cnpj, $emailProfissional);
+
+    echo "<script>window.location.href= './configuracao.php';</script>";
+
+    if ($saida == -1) {
+      echo "<script>alert('Erro no cadastro');</script>";
+    }
+  } else {
+    // realiza o INSERT
+
+    $saida = $usuario->cadastroEmpresa($_SESSION["id"], $nomeEmpresa, $cnpj, $emailProfissional);
+
+    echo "<script>window.location.href= './configuracao.php';</script>";
+
+    if ($saida == -1) {
+      echo "<script>alert('Erro no cadastro');</script>";
+    }
   }
 }
 ?>
