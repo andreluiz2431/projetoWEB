@@ -157,8 +157,12 @@ class Usuario
     { // TESTAR
         $this->conexao();
         try {
-            $sql = $this->pdo->prepare("UPDATE usuario SET nomeUsuario='off' WHERE idUsuario=" . $id . "");
+            $sql = $this->pdo->prepare("UPDATE usuario SET nomeUsuario='off', emailUsuario='off' WHERE idUsuario=" . $id . "");
             $sql->execute(array(':nomeUsuario' => 'off'));
+
+            session_destroy();
+
+            echo "<script>window.location.href= './index.html';</script>";
         } catch (PDOexception $e) { // verificação para caso se der errado
             echo "ERRO:" . $e->getMessege();
         }
@@ -348,9 +352,11 @@ class Usuario
 
     public function cadastroEmpresa($idUsuario, $nomeEmpresa, $cnpj, $emailProfissional)
     {
+        echo "<script>alert('" . $nomeEmpresa . "');</script>";
+
         try { // usa pra fazer inserção ou update no PDO
             $this->conexao();
-            $sql = $this->pdo->prepare("INSERT INTO empresa(cnpj, idUsuario, nomeEmpresa, emailEmpresa) VALUES(" . $cnpj . ",'" . $idUsuario . "','" . $nomeEmpresa . "','" . $emailProfissional . "')");
+            $sql = $this->pdo->prepare("INSERT INTO empresa(cnpj, idUsuario, nomeEmpresa, emailEmpresa) VALUES(:cnpj,'" . $idUsuario . "','" . $nomeEmpresa . "','" . $emailProfissional . "')");
             $sql->execute(array(':cnpj' => "$cnpj")); // faz para executar o array em PDO para inserção
 
             echo "<script>alert('Empresa " . $nomeEmpresa . " cadastrada com sucesso!');</script>";

@@ -223,37 +223,54 @@ if ($usuario->cnpj) {
                     <div class="row">
                       <div class="col-md-10">
 
-                        <div class="form-outline">
-                          <div class="row" style="margin-top: 3%;">
-                            <div class="col-md-12">
-                              <input type="text" id="typeText" class="form-control" />
-                              <label class="form-label text-white" for="typeText">Nome da empresa</label>
+                        <form method="POST" action="./configuracao.php">
 
+
+                          <div class="form-outline">
+                            <div class="row" style="margin-top: 3%;">
+                              <div class="col-md-12">
+                                <input name="nomeEmpresa" type="text" id="typeText" class="form-control" value="<?php
+                                                                                                                if ($usuario->nomeEmpresa) {
+                                                                                                                  echo $usuario->nomeEmpresa;
+                                                                                                                }
+                                                                                                                ?>" />
+                                <label class="form-label text-white" for="typeText">Nome da empresa</label>
+
+                              </div>
                             </div>
                           </div>
-                        </div>
 
-                        <div class="form-outline">
-                          <div class="row" style="margin-top: 6%;">
-                            <div class="col-md-12">
-                              <input type="text" id="cnpj" class="form-control" />
-                              <label class="form-label text-white" for="typeText">CNPJ</label>
+                          <div class="form-outline">
+                            <div class="row" style="margin-top: 6%;">
+                              <div class="col-md-12">
+                                <input name="cnpj" type="text" id="cnpj" class="form-control" value="<?php
+                                                                                                      if ($usuario->cnpj) {
+                                                                                                        echo $usuario->cnpj;
+                                                                                                      }
+                                                                                                      ?>" />
+                                <label class="form-label text-white" for="typeText">CNPJ</label>
+                              </div>
                             </div>
                           </div>
-                        </div>
 
-                        <div class="form-outline">
-                          <div class="row" style="margin-top: 9%;">
-                            <div class="col-md-12">
-                              <input type="email" id="typeEmail" class="form-control" />
-                              <label class="form-label text-white" for="typeEmail">E-mail profissional</label>
+                          <div class="form-outline">
+                            <div class="row" style="margin-top: 9%;">
+                              <div class="col-md-12">
+                                <input name="emailProfissional" type="email" id="typeEmail" class="form-control" value="<?php
+                                                                                                                        if ($usuario->emailEmpresa) {
+                                                                                                                          echo $usuario->emailEmpresa;
+                                                                                                                        }
+                                                                                                                        ?>" />
+                                <label class="form-label text-white" for="typeEmail">E-mail profissional</label>
+                              </div>
                             </div>
                           </div>
-                        </div>
 
-                        <div class="d-grid gap-2">
-                          <button class="btn btn-primary" type="submit" style="margin-top: 12%;">CADASTRAR</button>
-                        </div>
+                          <div class="d-grid gap-2">
+                            <button class="btn btn-primary" type="submit" style="margin-top: 12%;">CADASTRAR</button>
+                          </div>
+
+                        </form>
 
                       </div>
                     </div>
@@ -408,6 +425,7 @@ if (!empty($_POST["cnpj"])) {
     }
   } else {
     // realiza o INSERT
+
 
     $saida = $usuario->cadastroEmpresa($_SESSION["id"], $nomeEmpresa, $cnpj, $emailProfissional);
 
